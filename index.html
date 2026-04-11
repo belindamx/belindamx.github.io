@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Belinda Xu | Data Science Portfolio</title>
+
   <style>
     :root {
       --bg: #f7f8fa;
@@ -12,24 +13,18 @@
       --accent: #2ec4b6;
       --card: #ffffff;
       --border: #d9e2e8;
-      --shadow: rgba(26, 46, 53, 0.08);
-      --shadow-strong: rgba(26, 46, 53, 0.14);
+      --shadow: rgba(0,0,0,0.08);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(to bottom, #f8fafc 0%, #f4f7f9 100%);
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
       animation: fadeIn 0.5s ease;
     }
 
@@ -44,49 +39,64 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, #ffffff 0%, #f2fcfa 100%);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: white;
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 34px 30px;
+      border-radius: 20px;
+      padding: 28px;
       margin-bottom: 40px;
-      box-shadow: 0 12px 32px var(--shadow);
+      box-shadow: 0 10px 24px var(--shadow);
     }
 
-    .hero h1 {
-      font-size: 46px;
-      line-height: 1.05;
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
+    .avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .hero-text h1 {
+      font-size: 40px;
+      margin-bottom: 6px;
     }
 
     .subtitle {
-      font-size: 19px;
+      font-size: 17px;
       color: var(--muted);
-      margin: 0 0 18px;
     }
 
     .top-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-      font-size: 15px;
+      margin-top: 8px;
+      font-size: 14px;
     }
 
-    .top-links a {
+    a {
       color: var(--accent);
       text-decoration: none;
+      position: relative;
       font-weight: 600;
     }
 
-    .top-links a:hover {
-      text-decoration: underline;
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
     }
 
     .section-title {
-      font-size: 27px;
-      margin-bottom: 18px;
-      letter-spacing: -0.01em;
+      font-size: 26px;
+      margin-bottom: 16px;
     }
 
     .projects {
@@ -97,44 +107,42 @@
     .project {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-      box-shadow: 0 4px 12px rgba(26, 46, 53, 0.02);
+      border-radius: 16px;
+      padding: 22px;
+      transition: all 0.2s ease;
     }
 
     .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 30px var(--shadow-strong);
-      border-color: #c8d8df;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
     }
 
     .project h3 {
-      margin-bottom: 8px;
-      font-size: 21px;
-      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+      font-size: 20px;
     }
 
     .project p {
-      margin: 0 0 14px;
+      margin: 0 0 12px;
       color: var(--muted);
-      font-size: 16px;
     }
 
     .links {
       display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
+    .divider {
+      margin: 48px 0 20px;
+      border-top: 1px solid var(--border);
     }
 
-    .links a:hover {
-      text-decoration: underline;
+    .footer {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     @keyframes fadeIn {
@@ -149,50 +157,31 @@
     }
 
     @media (max-width: 640px) {
-      .container {
-        padding-top: 40px;
-      }
-
       .hero {
-        padding: 24px 20px;
-        margin-bottom: 32px;
+        flex-direction: column;
+        text-align: center;
       }
 
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .subtitle {
-        font-size: 16px;
-      }
-
-      .section-title {
-        font-size: 23px;
-      }
-
-      .project {
-        padding: 20px;
-      }
-
-      .project h3 {
-        font-size: 19px;
-      }
-
-      .project p {
-        font-size: 15px;
+      .hero-text h1 {
+        font-size: 32px;
       }
     }
+
   </style>
 </head>
+
 <body>
   <main class="container">
+
     <section class="hero">
-      <h1>Belinda Xu</h1>
-      <p class="subtitle">Supply Chain @ Apple | Master's in Data Science, UC Berkeley</p>
-      <div class="top-links">
-        <a href="https://github.com/belindamx" target="_blank">GitHub</a>
-        <span>·</span>
-        <a href="https://www.linkedin.com/in/belindax/" target="_blank">LinkedIn</a>
+      <img src="assets/avatar.jpg" class="avatar" />
+      <div class="hero-text">
+        <h1>Belinda Xu</h1>
+        <p class="subtitle">Supply Chain @ Apple | Master's in Data Science, UC Berkeley</p>
+        <div class="top-links">
+          <a href="https://github.com/belindamx" target="_blank">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/belindax/" target="_blank">LinkedIn</a>
+        </div>
       </div>
     </section>
 
@@ -200,9 +189,10 @@
       <h2 class="section-title">Projects</h2>
 
       <div class="projects">
+
         <div class="project">
           <h3>♟ Chess Dashboard</h3>
-          <p>Streamlit dashboard analyzing personal Chess.com games, 32k+ over 10 years</p>
+          <p>Interactive Streamlit dashboard analyzing 32k+ personal Chess.com games over 10 years.</p>
           <div class="links">
             <a href="https://belinda-chess.streamlit.app/" target="_blank">Live App</a>
             <a href="https://github.com/belindamx/chess-dashboard" target="_blank">GitHub Repo</a>
@@ -211,7 +201,7 @@
 
         <div class="project">
           <h3>SFPD Stop Duration Analysis</h3>
-          <p>Regression analysis of police stop duration by perceived race, age, and gender</p>
+          <p>Regression analysis of police stop duration by perceived race, age, and gender.</p>
           <div class="links">
             <a href="https://github.com/belindamx/sfpd-police-stop-regression" target="_blank">GitHub Repo</a>
           </div>
@@ -219,7 +209,7 @@
 
         <div class="project">
           <h3>ANES Political Trust Analysis</h3>
-          <p>Statistical analysis of trust in government using ANES survey data and nonparametric testing</p>
+          <p>Statistical analysis of trust in government using ANES survey data and nonparametric testing.</p>
           <div class="links">
             <a href="https://github.com/belindamx/anes-gov-trust-analysis" target="_blank">GitHub Repo</a>
           </div>
@@ -227,13 +217,23 @@
 
         <div class="project">
           <h3>California Crash EDA</h3>
-          <p>Exploratory analysis identifying high-risk collision patterns in California crash data</p>
+          <p>Exploratory analysis identifying high-risk collision patterns in California crash data.</p>
           <div class="links">
             <a href="https://github.com/belindamx/california-crash-eda" target="_blank">GitHub Repo</a>
           </div>
         </div>
+
       </div>
     </section>
+
+    <div class="divider"></div>
+
+    <div class="footer">
+      <a href="https://github.com/belindamx" target="_blank">GitHub</a>
+      <span>·</span>
+      <a href="https://www.linkedin.com/in/belindax/" target="_blank">LinkedIn</a>
+    </div>
+
   </main>
 </body>
 </html>
