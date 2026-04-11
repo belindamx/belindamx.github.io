@@ -37,31 +37,38 @@
       margin: 0;
     }
 
-    /* HERO (clean, no box) */
     .hero {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
       margin-bottom: 48px;
+      padding: 20px 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
 
     .avatar {
-      width: 70px;
-      height: 70px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
-      object-fit: cover;
+      object-fit: contain;
+      background: white;
+      padding: 4px;
       flex-shrink: 0;
     }
 
     .hero-text h1 {
-      font-size: 42px;
+      font-size: 32px;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+      line-height: 1.15;
     }
 
     .subtitle {
-      font-size: 17px;
+      font-size: 16px;
       color: var(--muted);
+      margin-top: 2px;
     }
 
     .top-links {
@@ -69,7 +76,6 @@
       font-size: 14px;
     }
 
-    /* LINK HOVER */
     a {
       color: var(--accent);
       text-decoration: none;
@@ -92,7 +98,6 @@
       width: 100%;
     }
 
-    /* PROJECTS */
     .section-title {
       font-size: 26px;
       margin-bottom: 16px;
@@ -132,7 +137,6 @@
       flex-wrap: wrap;
     }
 
-    /* ANIMATION */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -144,7 +148,6 @@
       }
     }
 
-    /* MOBILE */
     @media (max-width: 640px) {
       .hero {
         flex-direction: column;
@@ -152,7 +155,7 @@
       }
 
       .hero-text h1 {
-        font-size: 32px;
+        font-size: 28px;
       }
     }
   </style>
@@ -160,8 +163,6 @@
 
 <body>
   <main class="container">
-
-    <!-- HERO -->
     <section class="hero">
       <img src="assets/avatar.jpg" alt="Belinda Xu" class="avatar" />
       <div class="hero-text">
@@ -174,12 +175,10 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section>
       <h2 class="section-title">Projects</h2>
 
       <div class="projects">
-
         <div class="project">
           <h3>♟ Chess Dashboard</h3>
           <p>Streamlit dashboard analyzing 32k personal Chess.com games over 10 years</p>
@@ -212,10 +211,8 @@
             <a href="https://github.com/belindamx/california-crash-eda" target="_blank">GitHub Repo</a>
           </div>
         </div>
-
       </div>
     </section>
-
   </main>
 </body>
 </html>
