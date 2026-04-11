@@ -37,45 +37,53 @@
       margin: 0;
     }
 
+    /* HERO */
     .hero {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
       margin-bottom: 48px;
-      padding: 20px 0;
-      background: transparent;
-      border: none;
-      box-shadow: none;
     }
 
     .avatar {
-      width: 72px;
-      height: 72px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       object-fit: contain;
-      background: white;
-      padding: 4px;
+      background: transparent;
       flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-text h1 {
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 700;
-      margin-bottom: 4px;
-      line-height: 1.15;
+      margin-bottom: 2px;
+      line-height: 1.2;
     }
 
     .subtitle {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--muted);
-      margin-top: 2px;
+      margin-top: 0;
     }
 
     .top-links {
-      margin-top: 8px;
+      margin-top: 6px;
       font-size: 14px;
     }
 
+    /* LINK HOVER ANIMATION */
     a {
       color: var(--accent);
       text-decoration: none;
@@ -98,6 +106,7 @@
       width: 100%;
     }
 
+    /* PROJECTS */
     .section-title {
       font-size: 26px;
       margin-bottom: 16px;
@@ -137,6 +146,7 @@
       flex-wrap: wrap;
     }
 
+    /* ANIMATION */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -148,6 +158,7 @@
       }
     }
 
+    /* MOBILE */
     @media (max-width: 640px) {
       .hero {
         flex-direction: column;
@@ -155,7 +166,7 @@
       }
 
       .hero-text h1 {
-        font-size: 28px;
+        font-size: 26px;
       }
     }
   </style>
@@ -163,11 +174,14 @@
 
 <body>
   <main class="container">
+
     <section class="hero">
-      <img src="assets/avatar.jpg" alt="Belinda Xu" class="avatar" />
+      <img src="assets/avatar.png" alt="Belinda Xu" class="avatar" />
+
       <div class="hero-text">
         <h1>Belinda Xu</h1>
         <p class="subtitle">Supply Chain @ Apple | Master's in Data Science, UC Berkeley</p>
+
         <div class="top-links">
           <a href="https://github.com/belindamx" target="_blank">GitHub</a> ·
           <a href="https://www.linkedin.com/in/belindax/" target="_blank">LinkedIn</a>
@@ -179,6 +193,7 @@
       <h2 class="section-title">Projects</h2>
 
       <div class="projects">
+
         <div class="project">
           <h3>♟ Chess Dashboard</h3>
           <p>Streamlit dashboard analyzing 32k personal Chess.com games over 10 years</p>
@@ -211,8 +226,10 @@
             <a href="https://github.com/belindamx/california-crash-eda" target="_blank">GitHub Repo</a>
           </div>
         </div>
+
       </div>
     </section>
+
   </main>
 </body>
 </html>
