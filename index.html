@@ -47,8 +47,6 @@
 
     .avatar {
       width: 96px;
-      height: 96px;
-      border-radius: 50%;
       object-fit: contain;
       background: transparent;
       flex-shrink: 0;
@@ -171,7 +169,7 @@
     }
 
     .featured-grid .project-banner {
-      height: 150px;
+      height: 115px;
       font-size: 40px;
     }
 
@@ -199,6 +197,15 @@
       margin-top: auto;
     }
 
+    .tech-stack {
+      display: block;
+      font-size: 12px;
+      color: #9aa5ab;
+      margin-top: -8px;
+      margin-bottom: 14px;
+      letter-spacing: 0.01em;
+    }
+
     /* ADDITIONAL */
     .additional-grid {
       display: grid;
@@ -207,8 +214,7 @@
     }
 
     .additional-grid .project-banner {
-      height: 100px;
-      font-size: 28px;
+      height: 16px;
     }
 
     .additional-grid .project-body {
@@ -291,7 +297,8 @@
           <div class="project-banner"><img src="assets/chess_header.png" alt="Chess Analytics Dashboard" /></div>
           <div class="project-body">
             <h3>Chess Analytics Dashboard</h3>
-            <p>Streamlit dashboard analyzing 32k+ personal Chess.com games to surface rating trends and behavioral habits over the last decade</p>
+            <p>Built a Streamlit dashboard analyzing 32k+ Chess.com games to uncover rating trends and player behavior</p>
+            <span class="tech-stack">Python · Pandas · Streamlit</span>
             <div class="links">
               <a href="https://belinda-chess.streamlit.app/" target="_blank">Live App</a>
               <a href="https://github.com/belindamx/chess-dashboard" target="_blank">GitHub</a>
@@ -303,7 +310,8 @@
           <div class="project-banner"><img src="assets/graph_header.png" alt="Graph-Based Song Recommender" /></div>
           <div class="project-body">
             <h3>Graph-Based Song Recommender</h3>
-            <p>Graph-based recommender using Spotify audio features and Neo4j, leveraging community detection and path-based traversal for smooth music exploration</p>
+            <p>Built a recommendation system using Spotify audio features and Neo4j to generate local and cross-genre paths</p>
+            <span class="tech-stack">Python · Neo4j · Docker</span>
             <div class="links">
               <a href="https://github.com/belindamx/graph-song-recommender" target="_blank">GitHub</a>
             </div>
@@ -314,7 +322,8 @@
           <div class="project-banner"><img src="assets/bike_header.png" alt="Seoul Bike Demand Prediction" /></div>
           <div class="project-body">
             <h3>Seoul Bike Demand Prediction</h3>
-            <p>Machine learning models predicting hourly bike demand using temporal and environmental features, evaluated with regression metrics</p>
+            <p>Trained ML models (Linear Regression, XGBoost, FFNN) to predict hourly demand for Seoul's bike sharing program</p>
+            <span class="tech-stack">Python · TensorFlow · scikit-learn · XGBoost</span>
             <div class="links">
               <a href="https://github.com/belindamx/seoul-bike-demand" target="_blank">GitHub</a>
             </div>
@@ -330,10 +339,10 @@
       <div class="additional-grid">
 
         <div class="project">
-          <div class="project-banner placeholder" style="background: linear-gradient(135deg, #1e1b4b 0%, #6366f1 100%);">🚔</div>
+          <div class="project-banner placeholder" style="background: linear-gradient(90deg, #8aa4b8 0%, #baced8 100%);"></div>
           <div class="project-body">
             <h3>SFPD Stop Duration Analysis</h3>
-            <p>Regression analysis of police stop duration by perceived race, age, and gender</p>
+            <p>Regression analysis of police stop duration by perceived demographics</p>
             <div class="links">
               <a href="https://github.com/belindamx/sfpd-police-stop-regression" target="_blank">GitHub</a>
             </div>
@@ -341,10 +350,10 @@
         </div>
 
         <div class="project">
-          <div class="project-banner placeholder" style="background: linear-gradient(135deg, #312e81 0%, #818cf8 100%);">🗳️</div>
+          <div class="project-banner placeholder" style="background: linear-gradient(90deg, #96aec0 0%, #c2d4de 100%);"></div>
           <div class="project-body">
             <h3>ANES Political Trust Analysis</h3>
-            <p>Statistical analysis of trust in government using ANES survey data and nonparametric testing</p>
+            <p>Statistical analysis of trust in government by party affiliation</p>
             <div class="links">
               <a href="https://github.com/belindamx/anes-gov-trust-analysis" target="_blank">GitHub</a>
             </div>
@@ -352,10 +361,10 @@
         </div>
 
         <div class="project">
-          <div class="project-banner placeholder" style="background: linear-gradient(135deg, #1e1b4b 0%, #a5b4fc 100%);">🚗</div>
+          <div class="project-banner placeholder" style="background: linear-gradient(90deg, #a0b8c8 0%, #ccdae4 100%);"></div>
           <div class="project-body">
             <h3>California Crash EDA</h3>
-            <p>Exploratory analysis identifying high-risk collision patterns in California crash data</p>
+            <p>Exploratory analysis of high-risk collision patterns in CA crash data</p>
             <div class="links">
               <a href="https://github.com/belindamx/california-crash-eda" target="_blank">GitHub</a>
             </div>
