@@ -73,11 +73,10 @@
     .subtitle {
       font-size: 15px;
       color: var(--muted);
-      margin-top: 0;
+      margin: 0 0 8px;
     }
 
     .top-links {
-      margin-top: 6px;
       font-size: 14px;
     }
 
@@ -108,12 +107,12 @@
     .section-title {
       font-size: 22px;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
       color: var(--text);
     }
 
     section + section {
-      margin-top: 44px;
+      margin-top: 60px;
     }
 
     /* SHARED CARD */
@@ -129,7 +128,7 @@
 
     .project:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.11);
+      box-shadow: 0 16px 32px rgba(46, 196, 182, 0.08);
     }
 
     .project-banner {
@@ -200,7 +199,8 @@
     .project-metric {
       display: block;
       font-size: 12px;
-      color: #9aa5ab;
+      font-weight: 500;
+      color: #5f7d8a;
       margin: -6px 0 12px;
       letter-spacing: 0.02em;
     }
@@ -209,7 +209,7 @@
       display: block;
       font-size: 12px;
       color: #9aa5ab;
-      margin-top: -4px;
+      margin-top: 4px;
       margin-bottom: 14px;
       letter-spacing: 0.01em;
     }
@@ -219,6 +219,17 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
+    }
+
+    .additional-grid .project {
+      background: #f4f7f9;
+      border-color: #e4ecf0;
+      box-shadow: none;
+    }
+
+    .additional-grid .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(46, 196, 182, 0.06);
     }
 
     .additional-grid .project-banner {
@@ -284,11 +295,11 @@
   <main class="container">
 
     <section class="hero">
-      <img src="assets/avatar.png" alt="Belinda Xu" class="avatar" />
+      <a href="https://www.linkedin.com/in/belindax/" target="_blank"><img src="assets/avatar.png" alt="Belinda Xu" class="avatar" /></a>
 
       <div class="hero-text">
         <h1>Belinda Xu</h1>
-        <p class="subtitle">Supply Chain @ Apple | Master's in Data Science, UC Berkeley</p>
+        <p class="subtitle">Supply Chain @ Apple · Data Science, UC Berkeley</p>
         <div class="top-links">
           <a href="https://github.com/belindamx" target="_blank">GitHub</a> ·
           <a href="https://www.linkedin.com/in/belindax/" target="_blank">LinkedIn</a>
@@ -306,7 +317,7 @@
           <div class="project-body">
             <h3>Graph-Based Song Recommender</h3>
             <p>Recommendation system using Neo4j for community detection and graph traversal</p>
-            <span class="project-metric">~80k nodes · ~400k edges</span>
+            <span class="project-metric">~80k song nodes · ~400k edges</span>
             <span class="tech-stack">Python · Neo4j · Docker</span>
             <div class="links">
               <a href="https://github.com/belindamx/graph-song-recommender" target="_blank">GitHub</a>
@@ -332,7 +343,7 @@
           <div class="project-body">
             <h3>Chess Analytics Dashboard</h3>
             <p>Streamlit dashboard with rating trends, behavioral patterns, and a "Play Me" bot</p>
-            <span class="project-metric">32k+ games · 10 years of data</span>
+            <span class="project-metric">32k+ games · 10 years</span>
             <span class="tech-stack">Python · Pandas · Streamlit</span>
             <div class="links">
               <a href="https://belinda-chess.streamlit.app/" target="_blank">Live App</a>
