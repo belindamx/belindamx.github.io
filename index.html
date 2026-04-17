@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2c3e46" />
   <title>Belinda Xu | Data Science Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f7f8fa;
-      --text: #1a2e35;
-      --muted: #5f6b73;
+      --bg: #141921;
+      --surface: #363e51;
+      --surface-2: #3d4453;
+      --border: rgba(255,255,255,0.38);
+      --text: #f0f2f5;
+      --muted: #a8b0b8;
       --accent: #2ec4b6;
-      --card: #ffffff;
-      --border: #d9e2e8;
     }
 
     * {
@@ -22,7 +26,8 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      background: radial-gradient(ellipse 140% 90% at 50% 28%, #21324b 0%, #182030 50%, #131823 100%);
+      background-attachment: fixed;
       color: var(--text);
       animation: fadeIn 0.4s ease;
     }
@@ -40,13 +45,15 @@
     /* HERO */
     .hero {
       display: flex;
+      flex-direction: row;
       align-items: center;
+      justify-content: center;
       gap: 20px;
-      margin-bottom: 48px;
+      margin-bottom: 24px;
     }
 
     .avatar {
-      width: 96px;
+      width: 88px;
       object-fit: contain;
       background: transparent;
       flex-shrink: 0;
@@ -64,24 +71,27 @@
     .hero-text {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      align-items: flex-start;
     }
 
     .hero-text h1 {
       font-size: 30px;
       font-weight: 700;
-      margin-bottom: 2px;
+      margin-bottom: 6px;
       line-height: 1.2;
+      color: var(--text);
     }
 
     .subtitle {
-      font-size: 15px;
+      font-size: 17px;
       color: var(--muted);
-      margin: 0 0 8px;
+      margin: 0 0 2px;
     }
 
-    .top-links {
-      font-size: 14px;
+    .subtitle-secondary {
+      font-size: 15px;
+      color: #7e8a95;
+      margin: 0;
     }
 
     /* LINK HOVER ANIMATION */
@@ -107,6 +117,10 @@
       width: 100%;
     }
 
+    a:hover {
+      color: var(--accent);
+    }
+
     /* SECTIONS */
     .section-title {
       font-size: 22px;
@@ -121,18 +135,19 @@
 
     /* SHARED CARD */
     .project {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--surface);
+      border: 2px solid var(--border);
       border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.22);
     }
 
     .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 32px rgba(46, 196, 182, 0.08);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.30);
     }
 
     .project-banner {
@@ -143,13 +158,15 @@
     .project-banner img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
+      padding: 12px 16px;
       transition: transform 0.4s ease;
       display: block;
     }
 
     .project:hover .project-banner img {
-      transform: scale(1.06);
+      transform: scale(1.02);
     }
 
     .project-banner.placeholder {
@@ -164,105 +181,282 @@
       flex-wrap: wrap;
     }
 
+    /* SECTION LABEL */
+    .section-label {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 52px;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(130, 155, 185, 0.30);
+    }
+
+    .section-label span {
+      font-family: "Press Start 2P", monospace;
+      font-size: 10px;
+      color: #8daac3;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+      padding: 0 16px;
+      position: relative;
+      top: 1px;
+    }
+
     /* FEATURED */
     .featured-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 28px;
+    }
+
+    .featured-grid .project[data-type="additional"] {
+      grid-column: 1;
+    }
+
+    .featured-grid .project {
+      aspect-ratio: 1;
+      padding: 0;
+      gap: 0;
     }
 
     .featured-grid .project-banner {
-      height: 115px;
-      font-size: 40px;
+      flex: 0 0 auto;
+      height: 54%;
+      min-height: 0;
+    }
+
+    .featured-grid .project-banner img {
+      object-fit: contain;
+      padding: 4px 8px 2px;
     }
 
     .featured-grid .project-body {
-      padding: 20px 22px 22px;
+      padding: 6px 14px 10px;
       display: flex;
       flex-direction: column;
-      flex: 1;
+      align-items: center;
+      text-align: center;
     }
 
     .featured-grid .project h3 {
-      font-size: 17px;
-      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 3px;
+      color: var(--text);
     }
 
+    /* hide description from card — lives in modal */
     .featured-grid .project p {
-      margin: 0 0 14px;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.55;
+      display: none;
     }
 
     .featured-grid .links {
-      font-size: 13px;
+      font-size: 12px;
       margin-top: auto;
     }
 
     .project-metric {
       display: block;
-      font-size: 12px;
-      font-weight: 500;
-      color: #5f7d8a;
-      margin: -6px 0 12px;
-      letter-spacing: 0.02em;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 0;
+      letter-spacing: 0.01em;
     }
 
     .tech-stack {
       display: block;
-      font-size: 12px;
-      color: #9aa5ab;
-      margin-top: 4px;
-      margin-bottom: 14px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+      margin-bottom: 10px;
       letter-spacing: 0.01em;
     }
 
-    /* ADDITIONAL */
-    .additional-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .additional-grid .project {
-      background: #f3f6f8;
-      border-color: #dae4ea;
-      box-shadow: none;
-    }
-
-    .additional-grid .project:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(46, 196, 182, 0.06);
-    }
-
-    .additional-grid .project-banner {
-      height: 10px;
-      opacity: 0.85;
-    }
-
-    .additional-grid .project-body {
-      padding: 14px 16px 16px;
+    /* ADDITIONAL MODAL LIST */
+    .modal-project-list {
       display: flex;
       flex-direction: column;
-      flex: 1;
+      gap: 0;
+      margin-top: 16px;
     }
 
-    .additional-grid .project h3 {
-      font-size: 15px;
-      margin-bottom: 6px;
+    .modal-project-item {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .additional-grid .project p {
-      margin: 0 0 10px;
+    .modal-project-item:first-child { padding-top: 0; }
+    .modal-project-item:last-child  { border-bottom: none; padding-bottom: 0; }
+
+    .modal-project-item h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .modal-project-item p {
       font-size: 13px;
       color: var(--muted);
       line-height: 1.5;
+      margin: 0 0 8px;
     }
 
-    .additional-grid .links {
+    .modal-project-item a {
       font-size: 12px;
-      margin-top: auto;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .modal-project-item a::after { display: none; }
+
+    /* FEATURED CARD INTERACTIVITY */
+    .featured-grid .project {
+      cursor: pointer;
+    }
+
+    .featured-grid:has(.project:hover) .project {
+      opacity: 0.6;
+    }
+
+    .featured-grid:has(.project:hover) .project:hover {
+      opacity: 1;
+    }
+
+    /* Hide detail content from featured cards — lives in modal only */
+    .featured-grid .tech-stack,
+    .featured-grid .links {
+      display: none;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.62);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: #22262e;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 460px;
+      padding: 28px;
+      position: relative;
+      transform: translateY(10px) scale(0.97);
+      transition: transform 0.22s ease;
+    }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      background: #3a3a3a;
+      color: var(--text);
+    }
+
+    .modal-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 6px;
+      padding-right: 36px;
+    }
+
+    .modal-metric {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .modal-desc {
+      font-size: 14px;
+      color: #c4ccd2;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .modal-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+    }
+
+    .modal-tech {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      letter-spacing: 0.01em;
+    }
+
+    .modal-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .modal-links a {
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      transition: background 0.15s, border-color 0.15s;
+      text-decoration: none;
+      position: static;
+    }
+
+    .modal-links a::after { display: none; }
+
+    .modal-links a:hover {
+      background: #333;
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     /* ANIMATION */
@@ -279,18 +473,20 @@
 
     /* MOBILE */
     @media (max-width: 640px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-
       .hero-text h1 {
-        font-size: 26px;
+        font-size: 24px;
       }
 
-      .featured-grid,
-      .additional-grid {
-        grid-template-columns: 1fr;
+      .subtitle {
+        font-size: 15px;
+      }
+
+      .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-grid .project[data-type="additional"] {
+        grid-column: auto;
       }
     }
   </style>
@@ -301,100 +497,62 @@
 
     <section class="hero">
       <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="avatar-link"><img src="assets/avatar.png" alt="Belinda Xu" class="avatar" /></a>
-
       <div class="hero-text">
         <h1>Belinda Xu</h1>
-        <p class="subtitle">Supply Chain @ Apple · Data Science, UC Berkeley</p>
-        <div class="top-links">
-          <a href="https://github.com/belindamx" target="_blank">GitHub</a> ·
-          <a href="https://www.linkedin.com/in/belindax/" target="_blank">LinkedIn</a>
-        </div>
+        <p class="subtitle">Data Science, UC Berkeley</p>
+        <p class="subtitle-secondary">Supply Chain @ Apple</p>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title">Featured Projects</h2>
+
+      <div class="section-label"><span>▶ SELECT PROJECT ◀</span></div>
 
       <div class="featured-grid">
 
-        <div class="project">
-          <div class="project-banner"><img src="assets/graph_header.png" alt="Graph-Based Song Recommender" /></div>
+        <div class="project"
+          data-title="Graph-Based Music Recommender"
+          data-desc="Graph-based recommendations using Neo4j for cross-genre music discovery. Community detection groups similar songs; traversal surfaces what you'll love next. Built on ~80k song nodes and ~400k edges."
+          data-metric="~80k nodes · ~400k edges"
+          data-tech="Python · Neo4j · Docker"
+          data-links='[{"label":"GitHub","url":"https://github.com/belindamx/graph-song-recommender"}]'>
+          <div class="project-banner"><img src="assets/graph2.png" alt="Graph-Powered Music Recommender" /></div>
           <div class="project-body">
-            <h3>Graph-Based Song Recommender</h3>
-            <p>Recommendation system using Neo4j for community detection and graph traversal</p>
-            <span class="project-metric">~80k song nodes · ~400k edges</span>
-            <span class="tech-stack">Python · Neo4j · Docker</span>
-            <div class="links">
-              <a href="https://github.com/belindamx/graph-song-recommender" target="_blank">GitHub</a>
-            </div>
+            <h3>Graph-Based Music<br>Recommender</h3>
+            <span class="project-metric">~80k nodes · ~400k edges</span>
           </div>
         </div>
 
-        <div class="project">
-          <div class="project-banner"><img src="assets/bike_header.png" alt="Seoul Bike Demand Prediction" /></div>
+        <div class="project"
+          data-title="Bike-Share Demand Forecasting"
+          data-desc="ML benchmark across LR, XGBoost, and FFNN for hourly bike rental demand in Seoul. XGBoost led with R² 0.94 and MAE of 96 bikes."
+          data-metric="R²: 0.94 · XGBoost"
+          data-tech="TensorFlow · scikit-learn · XGBoost"
+          data-links='[{"label":"GitHub","url":"https://github.com/belindamx/seoul-bike-demand"}]'>
+          <div class="project-banner"><img src="assets/bike2.png" alt="Bike Demand Forecasting" /></div>
           <div class="project-body">
-            <h3>Seoul Bike Demand Prediction</h3>
-            <p>ML model evaluation (LR, XGBoost, FFNN) for hourly bike demand prediction</p>
-            <span class="project-metric">R²: 0.94 · MAE: 96 (XGBoost)</span>
-            <span class="tech-stack">TensorFlow · scikit-learn · XGBoost</span>
-            <div class="links">
-              <a href="https://github.com/belindamx/seoul-bike-demand" target="_blank">GitHub</a>
-            </div>
+            <h3>Bike-Share Demand<br>Forecasting</h3>
+            <span class="project-metric">R²: 0.94 · XGBoost</span>
           </div>
         </div>
 
-        <div class="project">
-          <div class="project-banner"><img src="assets/chess_header.png" alt="Chess Analytics Dashboard" /></div>
+        <div class="project"
+          data-title="Chess Analytics Dashboard"
+          data-desc="10 years and 32k+ personal games analyzed — rating trends, behavioral patterns by time control, and a bot trained on my own play style."
+          data-metric="32k+ games · 10 years"
+          data-tech="Python · Pandas · Streamlit"
+          data-links='[{"label":"Live App","url":"https://belinda-chess.streamlit.app/"},{"label":"GitHub","url":"https://github.com/belindamx/chess-dashboard"}]'>
+          <div class="project-banner"><img src="assets/chess2.png" alt="Chess Analytics Dashboard" /></div>
           <div class="project-body">
-            <h3>Chess Analytics Dashboard</h3>
-            <p>Streamlit dashboard with rating trends, behavioral patterns, and a "Play Me" bot</p>
+            <h3>Chess Analytics<br>Dashboard</h3>
             <span class="project-metric">32k+ games · 10 years</span>
-            <span class="tech-stack">Python · Pandas · Streamlit</span>
-            <div class="links">
-              <a href="https://belinda-chess.streamlit.app/" target="_blank">Live App</a>
-              <a href="https://github.com/belindamx/chess-dashboard" target="_blank">GitHub</a>
-            </div>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <section>
-      <h2 class="section-title">Additional Projects</h2>
-
-      <div class="additional-grid">
-
-        <div class="project">
-          <div class="project-banner placeholder" style="background: linear-gradient(90deg, #c2d3dd 0%, #d8e5ec 100%);"></div>
+        <div class="project" data-type="additional" data-title="Additional Projects">
+          <div class="project-banner"><img src="assets/additional.png" alt="Additional Projects" /></div>
           <div class="project-body">
-            <h3>SFPD Stop Duration Modeling</h3>
-            <p>Regression modeling of police stop duration by perceived demographics</p>
-            <div class="links">
-              <a href="https://github.com/belindamx/sfpd-police-stop-regression" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project">
-          <div class="project-banner placeholder" style="background: linear-gradient(90deg, #c4d4de 0%, #d9e6ed 100%);"></div>
-          <div class="project-body">
-            <h3>ANES Political Trust Analysis</h3>
-            <p>Statistical evaluation of trust in government by party affiliation</p>
-            <div class="links">
-              <a href="https://github.com/belindamx/anes-gov-trust-analysis" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project">
-          <div class="project-banner placeholder" style="background: linear-gradient(90deg, #c6d6e0 0%, #dae7ee 100%);"></div>
-          <div class="project-body">
-            <h3>California Crash EDA</h3>
-            <p>Exploratory analysis of high-risk collision patterns in CA crash data</p>
-            <div class="links">
-              <a href="https://github.com/belindamx/california-crash-eda" target="_blank">GitHub</a>
-            </div>
+            <h3>Additional<br>Projects</h3>
           </div>
         </div>
 
@@ -402,5 +560,90 @@
     </section>
 
   </main>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div id="modal-standard">
+        <p class="modal-metric" id="modal-metric"></p>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-divider"></div>
+        <p class="modal-tech" id="modal-tech"></p>
+        <div class="modal-links" id="modal-links"></div>
+      </div>
+      <div id="modal-project-list" class="modal-project-list"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const overlay     = document.getElementById('modal-overlay');
+      const elTitle     = document.getElementById('modal-title');
+      const elStandard  = document.getElementById('modal-standard');
+      const elMetric    = document.getElementById('modal-metric');
+      const elDesc      = document.getElementById('modal-desc');
+      const elTech      = document.getElementById('modal-tech');
+      const elLinks     = document.getElementById('modal-links');
+      const elProjList  = document.getElementById('modal-project-list');
+
+      const additionalProjects = [
+        { title: 'SFPD Stop Duration Modeling',  desc: 'Regression modeling of police stop duration by perceived demographics' },
+        { title: 'ANES Political Trust Analysis', desc: 'Statistical evaluation of trust in government by party affiliation' },
+        { title: 'California Crash EDA',          desc: 'Exploratory analysis of high-risk collision patterns in CA crash data' },
+      ];
+
+      function openModal(card) {
+        elTitle.textContent = card.dataset.title || '';
+
+        if (card.dataset.type === 'additional') {
+          elStandard.style.display = 'none';
+          elProjList.innerHTML = additionalProjects.map(function (p) {
+            return '<div class="modal-project-item"><h3>' + p.title + '</h3><p>' + p.desc + '</p></div>';
+          }).join('') + '<div class="modal-links" style="margin-top:16px"><a href="https://github.com/belindamx?tab=repositories" target="_blank" rel="noopener noreferrer" style="padding:7px 18px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);font-size:13px;position:static;">GitHub</a></div>';
+          elProjList.style.display = 'flex';
+        } else {
+          elStandard.style.display = '';
+          elProjList.style.display = 'none';
+          elMetric.textContent = card.dataset.metric || '';
+          elDesc.textContent   = card.dataset.desc   || '';
+          elTech.textContent   = card.dataset.tech   || '';
+          elLinks.innerHTML = '';
+          JSON.parse(card.dataset.links || '[]').forEach(function (link) {
+            const a = document.createElement('a');
+            a.href = link.url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.textContent = link.label;
+            elLinks.appendChild(a);
+          });
+        }
+
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.featured-grid .project').forEach(function (card) {
+        card.addEventListener('click', function () { openModal(card); });
+      });
+
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+    })();
+  </script>
+
 </body>
 </html>
