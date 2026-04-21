@@ -11,9 +11,9 @@
   <style>
     :root {
       --bg: #f7f8fa;
-      --text: #1a2e35;
-      --muted: #5f6b73;
-      --accent: #2ec4b6;
+      --text: #152830;
+      --muted: #4e5c65;
+      --accent: #4db5ae;
       --card: #ffffff;
       --border: #d9e2e8;
     }
@@ -25,7 +25,7 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(ellipse 140% 80% at 50% 0%, #F7F8FA 0%, #F4F6F8 50%, #F1F4F7 100%);
+      background: radial-gradient(ellipse 140% 80% at 50% 0%, #edf0f3 0%, #eaecf0 50%, #e7eaee 100%);
       background-attachment: fixed;
       color: var(--text);
       animation: fadeIn 0.4s ease;
@@ -95,10 +95,12 @@
       display: inline-block;
       text-align: center;
       font-size: 12px;
-      color: #5f7d8a;
+      font-weight: 500;
+      color: #6b8090;
+      background: rgba(95, 107, 115, 0.08);
       margin: 0;
       padding: 3px 10px;
-      border: 1px solid rgba(95, 107, 115, 0.3);
+      border: 1px solid rgba(95, 107, 115, 0.18);
       border-radius: 999px;
       letter-spacing: 0.02em;
     }
@@ -139,7 +141,7 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: rgba(35, 110, 130, 0.35);
+      background: rgba(78, 124, 135, 0.35);
     }
 
     .section-label span {
@@ -161,89 +163,80 @@
       padding: 0 8px;
     }
 
-    /* SHARED CARD */
+    /* PROJECT CARD */
     .project {
       background: var(--card);
-      border: 2px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
+      border: 1px solid rgba(217, 226, 232, 0.9);
+      border-radius: 0;
+      position: relative;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       display: flex;
       flex-direction: column;
     }
 
     .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 32px rgba(46, 196, 182, 0.08);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
     }
 
-    .project-banner {
-      width: 100%;
-      overflow: hidden;
+    .project:hover::before {
+      border-color: color-mix(in srgb, var(--project-color, var(--accent)) 90%, white);
     }
 
-    .project-banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-      display: block;
-    }
-
-    .project:hover .project-banner img {
-      transform: scale(1.06);
-    }
-
-    .project-banner.placeholder {
+    .project-header {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      padding: 4px 16px 4px;
+      background: color-mix(in srgb, var(--project-color, #4e7c87) 25%, #1c2d35);
     }
 
-    .links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .project-number {
+      font-family: "Press Start 2P", monospace;
+      font-size: 11px;
+      color: color-mix(in srgb, var(--project-color, white) 20%, rgba(255,255,255,0.72));
+      letter-spacing: 0.04em;
+      line-height: 1;
+      flex-shrink: 0;
     }
 
-    /* FEATURED */
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .project-thumb {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 3px;
+      display: block;
+      flex-shrink: 0;
     }
 
-    .featured-grid .project-banner {
-      height: 90px;
-      font-size: 40px;
+    .project-divider {
+      height: 1px;
+      background: rgba(217, 226, 232, 0.5);
+      border: none;
+      margin: 8px 0 12px;
     }
 
-    .featured-grid .project {
-      border-width: 1px;
-    }
-
-    .featured-grid .project-body {
-      padding: 20px 22px 22px;
+    .project-body {
+      padding: 14px 20px 20px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
-    .featured-grid .project h3 {
-      font-size: 17px;
+    .project-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f2028;
       margin-bottom: 8px;
+      line-height: 1.35;
     }
 
-    .featured-grid .project p {
-      margin: 0 0 14px;
-      font-size: 14px;
+    .project-body p {
+      margin: 0 0 12px;
+      font-size: 13.5px;
       color: var(--muted);
       line-height: 1.55;
-    }
-
-    .featured-grid .links {
-      font-size: 13px;
-      margin-top: auto;
     }
 
     .project-metric {
@@ -251,36 +244,76 @@
       font-size: 12px;
       font-weight: 500;
       color: #5f7d8a;
-      margin: -6px 0 12px;
+      margin: 0 0 12px;
       letter-spacing: 0.02em;
     }
 
-    .tech-stack {
-      display: block;
-      font-size: 12px;
-      color: #9aa5ab;
-      margin-top: 4px;
+    .links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      margin-top: auto;
+    }
+
+
+    /* FEATURED GRID */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* TAGS */
+    .additional-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
       margin-bottom: 14px;
-      letter-spacing: 0.01em;
+    }
+
+    .additional-tag {
+      font-size: 11px;
+      font-weight: 500;
+      color: #6b8090;
+      background: rgba(95, 107, 115, 0.08);
+      border: 1px solid rgba(95, 107, 115, 0.18);
+      border-radius: 3px;
+      padding: 2px 8px;
+      letter-spacing: 0.02em;
     }
 
     /* ADDITIONAL SINGLE CARD */
     .additional-card {
       margin-top: 52px;
-      background: #f0f4f6;
-      border: 1.5px solid #d4dde4;
-      border-radius: 16px;
+      background: #f2f5f7;
+      border: 1px solid rgba(212, 221, 228, 0.9);
+      border-radius: 0;
+      position: relative;
       padding: 18px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .additional-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      border-top: 2px solid #a0adb4;
+      border-left: 2px solid #a0adb4;
+      pointer-events: none;
     }
 
     .additional-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(46, 196, 182, 0.06);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
     }
 
     .additional-card-text h3 {
@@ -305,34 +338,23 @@
       flex-shrink: 0;
     }
 
-    .additional-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
+    .additional-card-right .additional-tags {
       justify-content: flex-end;
-    }
-
-    .featured-grid .additional-tags {
-      justify-content: flex-start;
-    }
-
-    .additional-tag {
-      font-size: 11px;
-      font-weight: 500;
-      color: #6b8090;
-      background: rgba(95, 107, 115, 0.08);
-      border: 1px solid rgba(95, 107, 115, 0.18);
-      border-radius: 999px;
-      padding: 2px 8px;
-      letter-spacing: 0.02em;
+      margin-bottom: 0;
     }
 
     /* FOOTER */
+    .footer-divider {
+      height: 1px;
+      background: var(--border);
+      margin-top: 48px;
+    }
+
     .site-footer {
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-top: 52px;
+      margin-top: 56px;
       padding-bottom: 8px;
     }
 
@@ -385,7 +407,7 @@
         align-items: flex-start;
       }
 
-      .additional-tags {
+      .additional-card-right .additional-tags {
         justify-content: flex-start;
       }
     }
@@ -410,52 +432,66 @@
 
       <div class="featured-grid">
 
-        <div class="project">
-          <div class="project-banner"><img src="assets/graph_header.png" alt="Graph-Based Song Recommender" /></div>
+        <div class="project" style="--project-color: #4d9a96;">
+          <div class="project-header">
+            <span class="project-number">01</span>
+            <img src="assets/graph.png" alt="Graph-Based Song Recommender" class="project-thumb" />
+          </div>
           <div class="project-body">
             <h3>Graph-Based Song Recommender</h3>
             <p>Recommendation system using Neo4j for community detection and graph traversal</p>
             <span class="project-metric">~80k song nodes · ~400k edges</span>
-            <div class="additional-tags" style="margin-bottom: 14px;">
+            <div class="additional-tags">
               <span class="additional-tag">neo4j</span>
               <span class="additional-tag">python</span>
               <span class="additional-tag">docker</span>
             </div>
+            <hr class="project-divider" />
             <div class="links">
-              <a href="https://song-queue-generator-ftfayxrwrrtbjsy4d2gxu6.streamlit.app" target="_blank">View Project</a>
+              <a href="https://song-queue-generator-ftfayxrwrrtbjsy4d2gxu6.streamlit.app" target="_blank">App</a>
+              <a href="#" target="_blank">Github</a>
             </div>
           </div>
         </div>
 
-        <div class="project">
-          <div class="project-banner"><img src="assets/bike_header.png" alt="Seoul Bike Demand Prediction" /></div>
+        <div class="project" style="--project-color: #98ad6c;">
+          <div class="project-header">
+            <span class="project-number">02</span>
+            <img src="assets/bike.png" alt="Seoul Bike Demand Prediction" class="project-thumb" />
+          </div>
           <div class="project-body">
             <h3>Seoul Bike Demand Prediction</h3>
             <p>ML model evaluation (LR, XGBoost, FFNN) for hourly bike demand prediction</p>
             <span class="project-metric">R²: 0.94 · MAE: 96 (XGBoost)</span>
-            <div class="additional-tags" style="margin-bottom: 14px;">
+            <div class="additional-tags">
               <span class="additional-tag">xgboost</span>
               <span class="additional-tag">tf</span>
               <span class="additional-tag">sklearn</span>
             </div>
+            <hr class="project-divider" />
             <div class="links">
-              <a href="#" target="_blank">View Paper</a>
+              <a href="#" target="_blank">Paper</a>
+              <a href="#" target="_blank">Github</a>
             </div>
           </div>
         </div>
 
-        <div class="project">
-          <div class="project-banner"><img src="assets/chess_header.png" alt="Chess Analytics Dashboard" /></div>
+        <div class="project" style="--project-color: #5c85b0;">
+          <div class="project-header">
+            <span class="project-number">03</span>
+            <img src="assets/chess.png" alt="Chess Analytics Dashboard" class="project-thumb" />
+          </div>
           <div class="project-body">
-            <h3>Chess Analytics Dashboard</h3>
+            <h3>Chess Analytics<br>Dashboard</h3>
             <p>Streamlit dashboard with rating trends, behavioral patterns, and a "Play Me" bot</p>
             <span class="project-metric">32k+ games · 10 years</span>
-            <div class="additional-tags" style="margin-bottom: 14px;">
+            <div class="additional-tags">
               <span class="additional-tag">streamlit</span>
               <span class="additional-tag">pandas</span>
             </div>
+            <hr class="project-divider" />
             <div class="links">
-              <a href="https://belinda-chess.streamlit.app/" target="_blank">View Project</a>
+              <a href="https://belinda-chess.streamlit.app/" target="_blank">App</a>
             </div>
           </div>
         </div>
