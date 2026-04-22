@@ -189,7 +189,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 4px 16px 4px;
-      background: color-mix(in srgb, var(--project-color, #4e7c87) 25%, #1c2d35);
+      background: color-mix(in srgb, var(--project-color, #4e7c87) var(--mix-pct, 25%), #1c2d35);
     }
 
     .project-number {
@@ -432,7 +432,7 @@
 
       <div class="featured-grid">
 
-        <div class="project" style="--project-color: #a0d4d0;">
+        <div class="project" style="--project-color: #a0d4d0; --mix-pct: 45%;">
           <div class="project-header">
             <span class="project-number">01</span>
             <img src="assets/graph.png" alt="Graph-Based Song Recommender" class="project-thumb" />
@@ -454,7 +454,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #4d82a6;">
+        <div class="project" style="--project-color: #4d82a6; --mix-pct: 35%;">
           <div class="project-header">
             <span class="project-number">02</span>
             <img src="assets/bike.png" alt="Seoul Bike Demand Prediction" class="project-thumb" />
