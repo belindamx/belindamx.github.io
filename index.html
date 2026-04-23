@@ -385,6 +385,7 @@
 
     /* MOBILE */
     @media (max-width: 640px) {
+      .desktop-only { display: none; }
       .hero {
         flex-direction: column;
         text-align: center;
@@ -482,7 +483,7 @@
             <img src="assets/chess.png" alt="Chess Analytics Dashboard" class="project-thumb" />
           </div>
           <div class="project-body">
-            <h3>Chess Analytics<br>Dashboard</h3>
+            <h3>Chess Analytics<br class="desktop-only">Dashboard</h3>
             <p>Streamlit dashboard with rating trends, behavioral patterns, and a "Play Me" bot</p>
             <span class="project-metric">32k+ games · 10 years</span>
             <div class="additional-tags">
