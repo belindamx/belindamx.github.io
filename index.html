@@ -92,13 +92,14 @@
     .hero-text h1 {
       font-size: 34px;
       font-weight: 700;
+      margin-top: 6px;
       margin-bottom: 6px;
       line-height: 1.2;
     }
 
     .subtitle {
       font-size: 14px;
-      color: #4f5c66;
+      color: #2e3d47;
       margin: 0 0 10px;
       line-height: 1.55;
       white-space: nowrap;
@@ -134,8 +135,8 @@
       font-weight: 500;
     }
 
-    .meta-item i {
-      font-size: 11px;
+    .meta-icon {
+      font-size: 8px;
       color: #5a6470;
     }
 
@@ -172,7 +173,7 @@
     /* SECTION LABEL */
     .section-label {
       max-width: 1000px;
-      margin: 28px auto 36px;
+      margin: 28px auto 48px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -277,13 +278,14 @@
       font-size: 16px;
       font-weight: 700;
       color: #0f2028;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       line-height: 1.35;
     }
 
     .project-body p {
       margin: 0 0 12px;
       font-size: 13.5px;
+      font-weight: 450;
       color: var(--muted);
       line-height: 1.55;
       max-width: 90%;
@@ -308,7 +310,7 @@
       display: flex;
       flex-direction: column;
       gap: 7px;
-      margin: 0 0 20px;
+      margin: 0 0 28px;
     }
 
     .metric-row {
@@ -345,7 +347,6 @@
 
     .metric-bar-track {
       flex: 1;
-      max-width: 110px;
       height: 3px;
       border-radius: 2px;
       background: rgba(78, 124, 135, 0.12);
@@ -367,15 +368,15 @@
     }
 
     .project .links a {
-      color: #4caf50;
+      color: color-mix(in srgb, var(--project-color, #4e7c87) 80%, white);
     }
 
     .project .links a:hover {
-      color: #3e9442;
+      color: color-mix(in srgb, var(--project-color, #4e7c87) 60%, white);
     }
 
     .project .links a::after {
-      background: #4caf50;
+      background: color-mix(in srgb, var(--project-color, #4e7c87) 80%, white);
     }
 
 
@@ -415,7 +416,7 @@
 
     /* ADDITIONAL CARD */
     .additional-card {
-      margin-top: 48px;
+      margin-top: 56px;
       background: #f2f5f7;
       border: 1px solid rgba(212, 221, 228, 0.9);
       border-radius: 0;
@@ -466,7 +467,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 64px;
+      margin-top: 72px;
       padding-top: 16px;
       border-top: 1px solid rgba(78, 124, 135, 0.35);
     }
@@ -587,11 +588,11 @@
         <h1>Belinda Xu</h1>
         <p class="subtitle">Applying data science to supply chain at Apple. I like messy data and building models</p>
         <div class="header-meta">
-          <span class="meta-item"><i class="fa-solid fa-graduation-cap"></i>Data Science, UC Berkeley</span>
+          <span class="meta-item"><span class="meta-icon">◆</span>Data Science, UC Berkeley</span>
           <span class="meta-divider"></span>
-          <span class="meta-item"><i class="fa-solid fa-briefcase"></i>Supply Chain @ Apple</span>
+          <span class="meta-item"><span class="meta-icon">◆</span>Supply Chain @ Apple</span>
           <span class="meta-divider"></span>
-          <span class="meta-item"><i class="fa-solid fa-location-dot"></i>San Francisco</span>
+          <span class="meta-item"><span class="meta-icon">◆</span>San Francisco</span>
         </div>
       </div>
     </section>
@@ -614,14 +615,14 @@
                 <span class="metric-label">Nodes</span>
                 <div class="metric-bar-group">
                   <span class="metric-value">80k</span>
-                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:17%"></div></div>
+                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:19%"></div></div>
                 </div>
               </div>
               <div class="metric-row">
                 <span class="metric-label">Edges</span>
                 <div class="metric-bar-group">
                   <span class="metric-value">400k</span>
-                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:85%"></div></div>
+                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:95%"></div></div>
                 </div>
               </div>
             </div>
@@ -638,7 +639,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #4d82a6; --mix-pct: 35%;">
+        <div class="project" style="--project-color: #2878c0; --mix-pct: 35%;">
           <div class="project-header">
             <span class="project-number">02</span>
             <img src="assets/bike.png" alt="Seoul Bike Demand Prediction" class="project-thumb" />
@@ -651,14 +652,14 @@
                 <span class="metric-label">XGBoost</span>
                 <div class="metric-bar-group">
                   <span class="metric-value">0.94</span>
-                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:92%"></div></div>
+                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:95%"></div></div>
                 </div>
               </div>
               <div class="metric-row">
                 <span class="metric-label">Linear Reg.</span>
                 <div class="metric-bar-group">
                   <span class="metric-value">0.54</span>
-                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:38%"></div></div>
+                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:55%"></div></div>
                 </div>
               </div>
             </div>
@@ -675,7 +676,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #1e3568;">
+        <div class="project" style="--project-color: #1e3568; --mix-pct: 55%;">
           <div class="project-header">
             <span class="project-number">03</span>
             <img src="assets/chess.png" alt="Chess Analytics Dashboard" class="project-thumb" />
@@ -688,14 +689,14 @@
                 <span class="metric-label">Games</span>
                 <div class="metric-bar-group">
                   <span class="metric-value">32k+</span>
-                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:82%"></div></div>
+                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:95%"></div></div>
                 </div>
               </div>
               <div class="metric-row">
                 <span class="metric-label">Years</span>
                 <div class="metric-bar-group">
                   <span class="metric-value">10</span>
-                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:22%"></div></div>
+                  <div class="metric-bar-track"><div class="metric-bar-fill" style="width:25%"></div></div>
                 </div>
               </div>
             </div>
