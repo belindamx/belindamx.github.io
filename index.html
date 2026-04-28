@@ -57,23 +57,26 @@
       background: #ebe5d4;
       padding: 8px;
       display: grid;
-      place-items: start center;
+      place-items: center;
       position: relative;
       margin-bottom: -22px;
       z-index: 1;
     }
 
     .avatar {
-      width: 100%;
+      width: 80%;
       image-rendering: pixelated;
       object-fit: contain;
       background: transparent;
       display: block;
+      margin: 0 auto;
     }
 
     .avatar-link {
       display: block;
       line-height: 0;
+      width: 100%;
+      text-align: center;
     }
 
     .avatar-link::after {
@@ -84,6 +87,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      padding-top: 12px;
     }
 
     .hero-text h1 {
