@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f5f1e8" />
+  <meta name="theme-color" content="#F5F1EB" />
   <title>Belinda Xu | Data Science Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -11,12 +11,13 @@
 
   <style>
     :root {
-      --bg: #f5f1e8;
-      --text: #2b2620;
-      --muted: #4a4338;
-      --accent: #5c2952;
-      --card: #fffefc;
-      --border: #e5dcc6;
+      --bg: #F7F4EF;
+      --text: #111111;
+      --muted: #555555;
+      --accent: #6E4AE6;
+      --accent-hover: #5A3FD1;
+      --card: #FFFFFF;
+      --border: #E0D8D0;
     }
 
     * {
@@ -48,21 +49,21 @@
       gap: 32px;
       padding: 0 0 24px;
       align-items: start;
-      border-bottom: 1px dashed rgba(92,41,82,0.25);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
     .avatar-frame {
       width: 164px;
       height: 164px;
-      background: color-mix(in srgb, var(--accent) 4%, #faf7f2);
+      background: #F8F5F1;
       padding: 8px;
       display: grid;
       place-items: center;
       position: relative;
       margin-bottom: -22px;
       z-index: 1;
-      border: 2px solid var(--accent);
-      box-shadow: 4px 4px 0 rgba(92, 41, 82, 0.4);
+      border: 1.5px solid #E5E1DB;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
 
     .avatar {
@@ -94,17 +95,17 @@
 
     .hero-text h1 {
       font-size: 44px;
-      font-weight: 700;
-      letter-spacing: -0.025em;
+      font-weight: 800;
+      letter-spacing: -0.5px;
       line-height: 1.05;
       margin: 0 0 14px;
-      color: #1f1d1a;
+      color: #0F0F0F;
     }
 
     .subtitle {
       font-size: 16px;
       color: var(--muted);
-      margin: 0 0 24px;
+      margin: 0 0 8px;
       line-height: 1.55;
       max-width: 540px;
     }
@@ -113,8 +114,7 @@
       display: grid;
       grid-template-columns: repeat(3, auto);
       gap: 32px;
-      padding-top: 18px;
-      border-top: 1px dashed rgba(92,41,82,0.25);
+      padding-top: 20px;
     }
 
     .meta-item {
@@ -126,14 +126,14 @@
       font-family: "Press Start 2P", monospace;
       font-size: 8px;
       letter-spacing: 0.2em;
-      color: var(--accent);
+      color: #9A9A9A;
       margin-bottom: 6px;
     }
 
     .meta-val {
       font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
+      font-weight: 500;
+      color: #3A3A3A;
       letter-spacing: -0.005em;
     }
 
@@ -175,7 +175,7 @@
 
     .section-label .section-star {
       font-size: 16px;
-      color: var(--accent);
+      color: #333;
       line-height: 1;
       flex-shrink: 0;
       align-self: center;
@@ -184,8 +184,8 @@
     .section-label span:not(.section-star) {
       font-family: "Press Start 2P", monospace;
       font-size: 9px;
-      color: var(--accent);
-      letter-spacing: 0.12em;
+      color: #333;
+      letter-spacing: 0.08em;
       white-space: nowrap;
       flex-shrink: 0;
       line-height: 1;
@@ -196,15 +196,17 @@
       background: var(--card);
       border: 1px solid var(--card-border, var(--border));
       position: relative;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       display: flex;
       flex-direction: column;
     }
 
     .project:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.10);
     }
 
     .project-header {
@@ -212,7 +214,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 2px 16px;
-      background: color-mix(in srgb, var(--project-color, #1f1d1a) var(--mix-pct, 80%), #fffdf6);
+      background: linear-gradient(135deg, #6E4AE6, #7656EC);
     }
 
     .project-number {
@@ -305,12 +307,12 @@
     .metric-bar-track {
       flex: 1;
       height: 4px;
-      background: rgba(31,29,26,0.1);
+      background: #E9E6F2;
     }
 
     .metric-bar-fill {
       height: 100%;
-      background: color-mix(in srgb, var(--project-color, #c5613a) 65%, #fffdf6);
+      background: #6A48E0;
     }
 
     .links {
@@ -357,7 +359,7 @@
     /* ADDITIONAL CARD */
     .additional-card {
       margin-top: 48px;
-      background: rgba(92, 41, 82, 0.05);
+      background: rgba(0, 0, 0, 0.03);
       border: 1px solid rgba(0,0,0,0.05);
       border-radius: 10px;
       padding: 18px 24px;
@@ -383,7 +385,7 @@
       display: grid;
       place-items: center;
       flex-shrink: 0;
-      color: var(--accent);
+      color: #777;
       font-size: 16px;
     }
 
@@ -414,19 +416,19 @@
       align-items: center;
       margin-top: 88px;
       padding-top: 24px;
-      border-top: 1px solid rgba(31,29,26,0.2);
+      border-top: 1px solid #E0DBD5;
     }
 
     .footer-copy {
       font-family: "Press Start 2P", monospace;
       font-size: 11px;
-      color: var(--accent);
-      opacity: 0.85;
+      color: #777;
     }
 
     .footer-links {
       display: flex;
-      gap: 28px;
+      align-items: center;
+      gap: 20px;
       opacity: 0.85;
       transition: opacity 0.2s ease;
     }
@@ -435,26 +437,25 @@
       opacity: 1;
     }
 
+    .footer-contact-label {
+      font-family: "Press Start 2P", monospace;
+      font-size: 9px;
+      color: #777;
+      letter-spacing: 0.1em;
+      margin-right: 4px;
+    }
+
     .footer-link {
       color: var(--accent);
       display: inline-flex;
       align-items: center;
-    }
-
-    .footer-link svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-      transition: color 0.2s ease;
+      font-size: 21px;
     }
 
     .footer-link::after { display: none; }
-    .footer-link:hover { color: #2b2620; }
+    .footer-link:hover { color: var(--accent-hover); }
 
-    .footer-link-text {
-      font-family: "Press Start 2P", monospace;
-      font-size: 11px;
-    }
+
 
     /* GRAIN TEXTURE */
     body::after {
@@ -559,7 +560,7 @@
 
       <div class="featured-grid">
 
-        <div class="project" style="--project-color: #6E4A7E; --mix-pct: 80%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4AE6; --mix-pct: 80%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">01</span>
             <img src="assets/graph.png" alt="Graph-Based Song Recommender" class="project-thumb" />
@@ -596,7 +597,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #6E4A7E; --mix-pct: 80%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4AE6; --mix-pct: 80%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">02</span>
             <img src="assets/bike.png" alt="Seoul Bike Demand Prediction" class="project-thumb" />
@@ -633,7 +634,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #6E4A7E; --mix-pct: 80%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4AE6; --mix-pct: 80%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">03</span>
             <img src="assets/chess.png" alt="Chess Analytics Dashboard" class="project-thumb" />
@@ -688,9 +689,10 @@
     <footer class="site-footer">
       <span class="footer-copy">© 2026</span>
       <div class="footer-links">
-        <a href="https://github.com/belindamx" target="_blank" class="footer-link footer-link-text" aria-label="GitHub">GH</a>
-        <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="footer-link footer-link-text" aria-label="LinkedIn">LI</a>
-        <a href="mailto:mxu.belinda@gmail.com" class="footer-link footer-link-text" aria-label="Email">@</a>
+        <span class="footer-contact-label">CONTACT:</span>
+        <a href="https://github.com/belindamx" target="_blank" class="footer-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="footer-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:mxu.belinda@gmail.com" class="footer-link" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
       </div>
     </footer>
 
