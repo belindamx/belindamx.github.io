@@ -170,21 +170,25 @@
 
     .section-label::before,
     .section-label::after {
-      content: "";
-      flex: none;
-      width: 50px;
-      height: 2px;
-      background: var(--accent);
-      opacity: 0.35;
+      display: none;
     }
 
-    .section-label span {
+    .section-label .section-star {
+      font-size: 16px;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+      align-self: center;
+    }
+
+    .section-label span:not(.section-star) {
       font-family: "Press Start 2P", monospace;
       font-size: 9px;
       color: var(--accent);
       letter-spacing: 0.12em;
       white-space: nowrap;
       flex-shrink: 0;
+      line-height: 1;
     }
 
     /* PROJECT CARD */
@@ -551,11 +555,11 @@
     </section>
 
     <section>
-      <div class="section-label"><span>SELECT&nbsp;PROJECT</span></div>
+      <div class="section-label"><span class="section-star">✦</span><span>SELECT&nbsp;PROJECT</span><span class="section-star">✦</span></div>
 
       <div class="featured-grid">
 
-        <div class="project" style="--project-color: #2e1e2e; --mix-pct: 63%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4A7E; --mix-pct: 80%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">01</span>
             <img src="assets/graph.png" alt="Graph-Based Song Recommender" class="project-thumb" />
@@ -592,7 +596,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #2e1e2e; --mix-pct: 63%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4A7E; --mix-pct: 80%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">02</span>
             <img src="assets/bike.png" alt="Seoul Bike Demand Prediction" class="project-thumb" />
@@ -629,7 +633,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #2e1e2e; --mix-pct: 63%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4A7E; --mix-pct: 80%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">03</span>
             <img src="assets/chess.png" alt="Chess Analytics Dashboard" class="project-thumb" />
