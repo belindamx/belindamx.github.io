@@ -14,7 +14,7 @@
       --bg: #f5f1e8;
       --text: #2b2620;
       --muted: #4a4338;
-      --accent: #a8452a;
+      --accent: #5c2952;
       --card: #fffefc;
       --border: #e5dcc6;
     }
@@ -48,19 +48,21 @@
       gap: 32px;
       padding: 0 0 24px;
       align-items: start;
-      border-bottom: 1px dashed rgba(31,29,26,0.2);
+      border-bottom: 1px dashed rgba(92,41,82,0.25);
     }
 
     .avatar-frame {
       width: 164px;
       height: 164px;
-      background: #ebe5d4;
+      background: color-mix(in srgb, var(--accent) 4%, #faf7f2);
       padding: 8px;
       display: grid;
       place-items: center;
       position: relative;
       margin-bottom: -22px;
       z-index: 1;
+      border: 2px solid var(--accent);
+      box-shadow: 4px 4px 0 rgba(92, 41, 82, 0.4);
     }
 
     .avatar {
@@ -112,7 +114,7 @@
       grid-template-columns: repeat(3, auto);
       gap: 32px;
       padding-top: 18px;
-      border-top: 1px dashed rgba(31,29,26,0.2);
+      border-top: 1px dashed rgba(92,41,82,0.25);
     }
 
     .meta-item {
@@ -171,8 +173,9 @@
       content: "";
       flex: none;
       width: 50px;
-      height: 1px;
-      background: rgba(31,29,26,0.18);
+      height: 2px;
+      background: var(--accent);
+      opacity: 0.35;
     }
 
     .section-label span {
@@ -189,7 +192,7 @@
       background: var(--card);
       border: 1px solid var(--card-border, var(--border));
       position: relative;
-      box-shadow: 0 6px 16px rgba(60,40,20,0.08), 0 1px 2px rgba(60,40,20,0.04);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       display: flex;
       flex-direction: column;
@@ -197,7 +200,7 @@
 
     .project:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(60,40,20,0.14);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
     .project-header {
@@ -315,11 +318,11 @@
     }
 
     .project .links a {
-      color: color-mix(in srgb, var(--project-color, #c5613a) 70%, #2b2620);
+      color: var(--accent);
     }
 
     .project .links a::after {
-      background: color-mix(in srgb, var(--project-color, #c5613a) 70%, #2b2620);
+      background: var(--accent);
     }
 
     /* FEATURED GRID */
@@ -350,8 +353,8 @@
     /* ADDITIONAL CARD */
     .additional-card {
       margin-top: 48px;
-      background: #f0ebe0;
-      border: 1px solid #d8cfba;
+      background: rgba(92, 41, 82, 0.05);
+      border: 1px solid rgba(0,0,0,0.05);
       border-radius: 10px;
       padding: 18px 24px;
       display: flex;
@@ -370,13 +373,13 @@
     .additional-card-icon {
       width: 40px;
       height: 40px;
-      border: 1px solid #d0c8b4;
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
       border-radius: 8px;
-      background: #ede7d8;
+      background: color-mix(in srgb, var(--accent) 10%, #fff);
       display: grid;
       place-items: center;
       flex-shrink: 0;
-      color: #7a6f5e;
+      color: var(--accent);
       font-size: 16px;
     }
 
@@ -406,7 +409,7 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 88px;
-      padding-top: 16px;
+      padding-top: 24px;
       border-top: 1px solid rgba(31,29,26,0.2);
     }
 
@@ -414,13 +417,13 @@
       font-family: "Press Start 2P", monospace;
       font-size: 11px;
       color: var(--accent);
-      opacity: 0.5;
+      opacity: 0.85;
     }
 
     .footer-links {
       display: flex;
       gap: 28px;
-      opacity: 0.75;
+      opacity: 0.85;
       transition: opacity 0.2s ease;
     }
 
@@ -447,6 +450,18 @@
     .footer-link-text {
       font-family: "Press Start 2P", monospace;
       font-size: 11px;
+    }
+
+    /* GRAIN TEXTURE */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.04;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
     /* ANIMATION */
@@ -540,7 +555,7 @@
 
       <div class="featured-grid">
 
-        <div class="project" style="--project-color: #3d3a36; --mix-pct: 63%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #2e1e2e; --mix-pct: 63%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">01</span>
             <img src="assets/graph.png" alt="Graph-Based Song Recommender" class="project-thumb" />
@@ -577,7 +592,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #5a5f40; --mix-pct: 63%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #2e1e2e; --mix-pct: 63%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">02</span>
             <img src="assets/bike.png" alt="Seoul Bike Demand Prediction" class="project-thumb" />
@@ -614,7 +629,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #6e4038; --mix-pct: 63%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #2e1e2e; --mix-pct: 63%; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">03</span>
             <img src="assets/chess.png" alt="Chess Analytics Dashboard" class="project-thumb" />
