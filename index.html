@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#F5F1EB" />
   <title>Belinda Xu | Data Science Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
   <style>
     :root {
       --bg: #F7F4EF;
@@ -18,11 +18,11 @@
       --accent-hover: #5A3FD1;
       --card: #FFFFFF;
       --border: #E0D8D0;
+      --header-dark: #1f1d1a;
+      --header-num: #b39966;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -38,41 +38,28 @@
       padding: 64px 20px 80px;
     }
 
-    h1, h2, h3 {
-      margin: 0;
-    }
+    h1, h2, h3 { margin: 0; }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero {
       display: grid;
-      grid-template-columns: 164px 1fr;
-      gap: 32px;
-      padding: 0 0 24px;
+      grid-template-columns: 220px 1fr;
+      gap: 44px;
+      padding: 0 0 32px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       align-items: start;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
     .avatar-frame {
-      width: 164px;
-      height: 164px;
+      width: 220px;
+      height: 220px;
       background: #F8F5F1;
-      padding: 8px;
+      padding: 10px;
       display: grid;
       place-items: center;
       position: relative;
-      margin-bottom: -22px;
-      z-index: 1;
       border: 1.5px solid #E5E1DB;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    }
-
-    .avatar {
-      width: 80%;
-      image-rendering: pixelated;
-      object-fit: contain;
-      background: transparent;
-      display: block;
-      margin: 0 auto;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
     }
 
     .avatar-link {
@@ -81,20 +68,47 @@
       width: 100%;
       text-align: center;
     }
+    .avatar-link::after { display: none; }
 
-    .avatar-link::after {
-      display: none;
+    .avatar {
+      width: 82%;
+      image-rendering: pixelated;
+      object-fit: contain;
+      background: transparent;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* "that's me!" scribble — left side, pointing inward */
+    .scribble-arrow {
+      position: absolute;
+      top: 10px;
+      left: -38px;
+      width: 70px;
+      pointer-events: none;
+      transform: scaleX(-1) rotate(10deg);
+    }
+    .scribble-label {
+      position: absolute;
+      top: 2px;
+      left: -116px;
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      color: var(--accent);
+      transform: rotate(-6deg);
+      pointer-events: none;
+      white-space: nowrap;
     }
 
     .hero-text {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding-top: 12px;
+      padding-top: 14px;
     }
 
     .hero-text h1 {
-      font-size: 44px;
+      font-size: 48px;
       font-weight: 800;
       letter-spacing: -0.5px;
       line-height: 1.05;
@@ -105,39 +119,77 @@
     .subtitle {
       font-size: 16px;
       color: var(--muted);
-      margin: 0 0 8px;
+      margin: 0 0 22px;
       line-height: 1.55;
       max-width: 540px;
     }
 
-    .header-meta {
-      display: grid;
-      grid-template-columns: repeat(3, auto);
-      gap: 32px;
-      padding-top: 20px;
+    /* ── ID-CARD metadata block ── */
+    .id-card {
+      display: inline-grid;
+      grid-template-columns: auto auto auto;
+      align-items: stretch;
+      background: #fbf8f2;
+      border: 1px solid #ede5d2;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.03);
     }
 
-    .meta-item {
+    .id-stat {
+      padding: 12px 22px;
       display: flex;
       flex-direction: column;
+      gap: 6px;
+      position: relative;
     }
 
-    .meta-label {
+    .id-stat + .id-stat::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 1px;
+      background: #e5dcc4;
+    }
+
+    .id-stat-label {
       font-family: "Press Start 2P", monospace;
-      font-size: 8px;
-      letter-spacing: 0.2em;
-      color: #9A9A9A;
-      margin-bottom: 6px;
+      font-size: 7.5px;
+      letter-spacing: 0.22em;
+      color: #a89a7a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .meta-val {
-      font-size: 13px;
-      font-weight: 500;
-      color: #3A3A3A;
+    .id-stat-label::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .id-stat-value {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #2a2620;
       letter-spacing: -0.005em;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
     }
 
-    /* LINK HOVER ANIMATION */
+    .id-stat-sub {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 11px;
+      color: #9a8a72;
+      font-weight: 400;
+    }
+
+    /* ── LINKS ── */
     a {
       color: var(--accent);
       text-decoration: none;
@@ -156,21 +208,14 @@
       transition: width 0.2s ease;
     }
 
-    a:hover::after {
-      width: 100%;
-    }
+    a:hover::after { width: 100%; }
 
-    /* SECTION LABEL */
+    /* ── SECTION LABELS ── */
     .section-label {
-      margin: 48px auto 52px;
+      margin: 56px auto 36px;
       display: flex;
       align-items: center;
       gap: 14px;
-    }
-
-    .section-label::before,
-    .section-label::after {
-      display: none;
     }
 
     .section-label .section-star {
@@ -191,7 +236,7 @@
       line-height: 1;
     }
 
-    /* PROJECT CARD */
+    /* ── PROJECT CARD (near-black header) ── */
     .project {
       background: var(--card);
       border: 1px solid var(--card-border, var(--border));
@@ -213,22 +258,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 2px 16px;
-      background: linear-gradient(135deg, #6E4AE6, #7656EC);
+      padding: 6px 16px;
+      background: var(--header-dark);
     }
 
     .project-number {
       font-family: "Press Start 2P", monospace;
       font-size: 11px;
-      color: #ffffff;
+      color: var(--header-num);
       letter-spacing: 0.04em;
       line-height: 1;
       flex-shrink: 0;
     }
 
     .project-thumb {
-      width: 46px;
-      height: 46px;
+      width: 60px;
+      height: 60px;
       object-fit: contain;
       image-rendering: pixelated;
       display: block;
@@ -265,7 +310,7 @@
       line-height: 1.6;
     }
 
-    /* METRIC BARS */
+    /* metric bars */
     .metric-bars {
       display: flex;
       flex-direction: column;
@@ -288,11 +333,7 @@
       white-space: nowrap;
     }
 
-    .metric-bar-group {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .metric-bar-group { display: flex; align-items: center; gap: 6px; }
 
     .metric-value {
       font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
@@ -304,16 +345,8 @@
       flex-shrink: 0;
     }
 
-    .metric-bar-track {
-      flex: 1;
-      height: 4px;
-      background: #E9E6F2;
-    }
-
-    .metric-bar-fill {
-      height: 100%;
-      background: #6A48E0;
-    }
+    .metric-bar-track { flex: 1; height: 4px; background: #E9E6F2; }
+    .metric-bar-fill { height: 100%; background: #6A48E0; }
 
     .links {
       display: flex;
@@ -323,22 +356,15 @@
       margin-top: auto;
     }
 
-    .project .links a {
-      color: var(--accent);
-    }
+    .project .links a { color: var(--accent); }
+    .project .links a::after { background: var(--accent); }
 
-    .project .links a::after {
-      background: var(--accent);
-    }
-
-    /* FEATURED GRID */
     .featured-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
     }
 
-    /* TAGS */
     .additional-tags {
       display: flex;
       gap: 6px;
@@ -356,65 +382,96 @@
       padding: 3px 8px;
     }
 
-    /* ADDITIONAL CARD */
-    .additional-card {
-      margin-top: 48px;
-      background: rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(0,0,0,0.05);
+    /* ── MORE PROJECTS — quiet ToC list ── */
+    .more-list {
+      background: #fbf8f2;
+      border: 1px solid #ede8d8;
       border-radius: 10px;
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      box-shadow: 0 2px 8px rgba(60,40,20,0.05);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(60,40,20,0.04);
     }
 
-    .additional-card-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .additional-card-icon {
-      width: 40px;
-      height: 40px;
-      border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
-      border-radius: 8px;
-      background: color-mix(in srgb, var(--accent) 10%, #fff);
+    .more-row {
       display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      color: #777;
-      font-size: 16px;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 20px;
+      padding: 18px 24px;
+      align-items: start;
+      border-bottom: 1px solid #ece5d4;
+      transition: background 0.15s;
     }
 
-    .additional-card-text h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
+    .more-row:last-child { border-bottom: none; }
+    .more-row:hover { background: #f5efde; }
+    .more-row::after { display: none; }
+    .more-row { font-weight: 500; color: inherit; }
+    a.more-row { text-decoration: none; }
+
+    .more-num {
+      font-family: "Press Start 2P", monospace;
+      font-size: 10px;
+      color: #9A9A9A;
+      letter-spacing: 0.04em;
     }
 
-    .additional-card-text p {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 0;
+    .more-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
     }
 
-    .additional-cta {
-      font-size: 13px;
+    .more-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #2a2620;
+      letter-spacing: -0.005em;
+    }
+
+    .more-subtitle {
+      font-size: 11.5px;
+      color: #8a7f70;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .more-tags {
+      display: flex;
+      gap: 8px;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      color: #7a7064;
+    }
+
+    .more-arrow {
       color: var(--accent);
       font-weight: 600;
-      flex-shrink: 0;
+      font-size: 14px;
+      transition: transform 0.15s ease;
     }
 
-    /* FOOTER */
+    .more-row:hover .more-arrow { transform: translateX(3px); }
+
+    .more-foot {
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .more-foot a {
+      font-family: ui-monospace, monospace;
+      font-size: 11.5px;
+      color: #888;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .more-foot a::after { background: #888; }
+
+    /* ── FOOTER ── */
     .site-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 88px;
+      margin-top: 56px;
       padding-top: 24px;
       border-top: 1px solid #E0DBD5;
     }
@@ -433,9 +490,7 @@
       transition: opacity 0.2s ease;
     }
 
-    .footer-links:hover {
-      opacity: 1;
-    }
+    .footer-links:hover { opacity: 1; }
 
     .footer-contact-label {
       font-family: "Press Start 2P", monospace;
@@ -455,9 +510,7 @@
     .footer-link::after { display: none; }
     .footer-link:hover { color: var(--accent-hover); }
 
-
-
-    /* GRAIN TEXTURE */
+    /* subtle grain overlay */
     body::after {
       content: "";
       position: fixed;
@@ -469,58 +522,32 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
-    /* ANIMATION */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     /* TABLET */
     @media (max-width: 1040px) {
-      .featured-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .featured-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* MOBILE */
     @media (max-width: 640px) {
-      .container {
-        padding: 40px 20px 60px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .avatar-frame {
-        width: 100px;
-        height: 100px;
-      }
-
-      .hero-text h1 {
-        font-size: 32px;
-      }
-
-      .subtitle {
-        max-width: 100%;
-      }
-
-      .header-meta {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        justify-items: center;
-      }
-
-      .featured-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .additional-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .container { padding: 40px 20px 60px; }
+      .hero { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 24px; }
+      .avatar-frame { width: 140px; height: 140px; }
+      .scribble-arrow, .scribble-label { display: none; }
+      .hero-text { padding-top: 0; align-items: center; }
+      .hero-text h1 { font-size: 36px; }
+      .subtitle { max-width: 100%; }
+      .id-card { grid-template-columns: 1fr; }
+      .id-stat + .id-stat::before { left: 14px; right: 14px; top: 0; bottom: auto; height: 1px; width: auto; }
+      .id-stat { padding: 12px 18px; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .more-row { grid-template-columns: auto 1fr auto; padding: 14px 16px; gap: 12px; }
+      .more-tags { display: none; }
+      .site-footer { flex-direction: column; gap: 16px; }
     }
   </style>
 </head>
@@ -528,39 +555,51 @@
 <body>
   <main class="container">
 
+    <!-- HERO -->
     <section class="hero">
       <div class="avatar-frame">
         <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="avatar-link">
           <img src="assets/avatar.png" alt="Belinda Xu" class="avatar" />
         </a>
+        <svg class="scribble-arrow" viewBox="0 0 80 60" aria-hidden="true">
+          <path d="M5 40 Q 18 8, 35 30 T 70 18" stroke="#6E4AE6" stroke-width="2.2" fill="none" stroke-linecap="round" />
+          <path d="M62 14 L 70 18 L 64 24" stroke="#6E4AE6" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="scribble-label">that's me!</span>
       </div>
 
       <div class="hero-text">
         <h1>Belinda Xu</h1>
         <p class="subtitle">Applying data science to supply chain at Apple<br>I like messy data and building models</p>
-        <div class="header-meta">
-          <div class="meta-item">
-            <span class="meta-label">EDUCATION</span>
-            <span class="meta-val">Data Science · UC Berkeley</span>
+
+        <div class="id-card">
+          <div class="id-stat">
+            <span class="id-stat-label">EDU</span>
+            <span class="id-stat-value">UC Berkeley<span class="id-stat-sub">Data Science</span></span>
           </div>
-          <div class="meta-item">
-            <span class="meta-label">ROLE</span>
-            <span class="meta-val">Supply Chain · Apple</span>
+          <div class="id-stat">
+            <span class="id-stat-label">ROLE</span>
+            <span class="id-stat-value">Apple<span class="id-stat-sub">Supply Chain</span></span>
           </div>
-          <div class="meta-item">
-            <span class="meta-label">LOCATION</span>
-            <span class="meta-val">San Francisco, CA</span>
+          <div class="id-stat">
+            <span class="id-stat-label">LOC</span>
+            <span class="id-stat-value">San Francisco<span class="id-stat-sub">CA</span></span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SELECTED WORK -->
     <section>
-      <div class="section-label"><span class="section-star">✦</span><span>SELECT&nbsp;PROJECT</span><span class="section-star">✦</span></div>
+      <div class="section-label">
+        <span class="section-star">✦</span>
+        <span>SELECTED&nbsp;WORK</span>
+        <span class="section-star">✦</span>
+      </div>
 
       <div class="featured-grid">
 
-        <div class="project" style="--project-color: #6E4AE6; --mix-pct: 80%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4AE6; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">01</span>
             <img src="assets/graph.png" alt="Graph-Based Song Recommender" class="project-thumb" />
@@ -598,10 +637,10 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #6E4AE6; --mix-pct: 80%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4AE6; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">02</span>
-            <img src="assets/bike.png" alt="Seoul Bike Demand Prediction" class="project-thumb" />
+            <img src="assets/bike.png" alt="Bike-Share Demand Prediction" class="project-thumb" />
           </div>
           <div class="project-body">
             <h3>Bike-Share Demand Prediction</h3>
@@ -635,7 +674,7 @@
           </div>
         </div>
 
-        <div class="project" style="--project-color: #6E4AE6; --mix-pct: 80%; --card-border: #ede8d8;">
+        <div class="project" style="--project-color: #6E4AE6; --card-border: #ede8d8;">
           <div class="project-header">
             <span class="project-number">03</span>
             <img src="assets/chess.png" alt="Chess Analytics Dashboard" class="project-thumb" />
@@ -661,6 +700,7 @@
             </div>
             <div class="additional-tags">
               <span class="additional-tag">streamlit</span>
+              <span class="additional-tag">python</span>
               <span class="additional-tag">pandas</span>
             </div>
             <hr class="project-divider" />
@@ -674,26 +714,63 @@
       </div>
     </section>
 
-    <div class="additional-card">
-      <div class="additional-card-left">
-        <div class="additional-card-icon">
-          <i class="fa-regular fa-folder"></i>
-        </div>
-        <div class="additional-card-text">
-          <h3>Additional Projects</h3>
-          <p>Projects across regression modeling, statistical analysis, and EDA.</p>
-        </div>
+    <!-- MORE PROJECTS -->
+    <section style="margin-top: 64px;">
+      <div class="section-label">
+        <span class="section-star">✦</span>
+        <span>MORE&nbsp;PROJECTS</span>
+        <span class="section-star">✦</span>
       </div>
-      <a class="additional-cta" href="https://github.com/belindamx?tab=repositories" target="_blank">View all →</a>
-    </div>
 
+      <div class="more-list">
+        <a class="more-row" href="https://github.com/belindamx/sfpd-police-stop-regression" target="_blank">
+          <span class="more-num">04</span>
+          <span class="more-title-wrap">
+            <span class="more-title">SFPD Stop Duration by Perceived Demographics</span>
+            <span class="more-subtitle">Regression analysis of stop duration by perceived race, age, and gender</span>
+          </span>
+          <span class="more-tags"><span>R</span><span>ggplot2</span><span>stargazer</span></span>
+          <span class="more-arrow">→</span>
+        </a>
+        <a class="more-row" href="https://github.com/belindamx/anes-gov-trust-analysis" target="_blank">
+          <span class="more-num">05</span>
+          <span class="more-title-wrap">
+            <span class="more-title">Trust in Government by Party Affiliation</span>
+            <span class="more-subtitle">Wilcoxon tests and effect sizes on ANES survey data to compare trust across party lines</span>
+          </span>
+          <span class="more-tags"><span>R</span><span>ggplot2</span><span>tidyverse</span></span>
+          <span class="more-arrow">→</span>
+        </a>
+        <a class="more-row" href="https://github.com/belindamx/california-crash-eda" target="_blank">
+          <span class="more-num">06</span>
+          <span class="more-title-wrap">
+            <span class="more-title">California Car Crash EDA</span>
+            <span class="more-subtitle">Exploratory analysis of CCRS crash records to identify high-risk collision patterns</span>
+          </span>
+          <span class="more-tags"><span>pandas</span><span>numpy</span><span>plotly</span></span>
+          <span class="more-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="more-foot">
+        <a href="https://github.com/belindamx?tab=repositories" target="_blank">SEE EVERYTHING ON GITHUB →</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="site-footer">
       <span class="footer-copy">© 2026</span>
       <div class="footer-links">
         <span class="footer-contact-label">CONTACT:</span>
-        <a href="https://github.com/belindamx" target="_blank" class="footer-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="footer-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="mailto:mxu.belinda@gmail.com" class="footer-link" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+        <a href="https://github.com/belindamx" target="_blank" class="footer-link" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="footer-link" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="mailto:mxu.belinda@gmail.com" class="footer-link" aria-label="Email">
+          <i class="fa-regular fa-envelope"></i>
+        </a>
       </div>
     </footer>
 
