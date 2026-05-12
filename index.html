@@ -43,23 +43,87 @@
     /* ── HERO ── */
     .hero {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 44px;
-      padding: 0 0 32px;
+      grid-template-columns: 204px 1fr;
+      gap: 34px;
+      padding: 0 0 60px;
       border-bottom: 1px solid rgba(0,0,0,0.08);
       align-items: start;
     }
 
+    .avatar-frame-wrap {
+      position: relative;
+      width: 204px;
+      height: 204px;
+      flex-shrink: 0;
+      filter: drop-shadow(2px 3px 0 rgba(0,0,0,0.045));
+    }
+
+    /* OUTER border shell — clipped pixel corners, taupe/beige */
+    .avatar-frame-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(200,184,163,0.72);
+      clip-path: polygon(
+        8px 0, calc(100% - 8px) 0,
+        calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px),
+        0 calc(100% - 8px),
+        0 8px,
+        4px 8px, 4px 4px, 8px 4px
+      );
+      z-index: 0;
+    }
+
     .avatar-frame {
-      width: 220px;
-      height: 220px;
-      background: #F8F5F1;
-      padding: 10px;
+      position: absolute;
+      inset: 3px;
+      background: #fdf9f5;
+      padding: 18px;
       display: grid;
       place-items: center;
-      position: relative;
-      border: 1.5px solid #E5E1DB;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      clip-path: polygon(
+        8px 0, calc(100% - 8px) 0,
+        calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px),
+        0 calc(100% - 8px),
+        0 8px,
+        4px 8px, 4px 4px, 8px 4px
+      );
+      z-index: 1;
+    }
+
+    /* INNER inset border — sits ~8px inside the outer edge */
+    .avatar-frame::before {
+      content: '';
+      position: absolute;
+      inset: 9px;
+      border: 1px solid #c8b8a3;
+      clip-path: polygon(
+        6px 0, calc(100% - 6px) 0,
+        calc(100% - 6px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 6px,
+        100% 6px,
+        100% calc(100% - 6px),
+        calc(100% - 2px) calc(100% - 6px), calc(100% - 2px) calc(100% - 2px), calc(100% - 6px) calc(100% - 2px),
+        calc(100% - 6px) 100%,
+        6px 100%,
+        6px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 6px),
+        0 calc(100% - 6px),
+        0 6px,
+        2px 6px, 2px 2px, 6px 2px
+      );
+      z-index: 2;
+      pointer-events: none;
     }
 
     .avatar-link {
@@ -71,7 +135,7 @@
     .avatar-link::after { display: none; }
 
     .avatar {
-      width: 82%;
+      width: 73%;
       image-rendering: pixelated;
       object-fit: contain;
       background: transparent;
@@ -79,26 +143,6 @@
       margin: 0 auto;
     }
 
-    /* "that's me!" scribble — left side, pointing inward */
-    .scribble-arrow {
-      position: absolute;
-      top: 10px;
-      left: -38px;
-      width: 70px;
-      pointer-events: none;
-      transform: scaleX(-1) rotate(10deg);
-    }
-    .scribble-label {
-      position: absolute;
-      top: 2px;
-      left: -116px;
-      font-family: 'Caveat', cursive;
-      font-size: 20px;
-      color: var(--accent);
-      transform: rotate(-6deg);
-      pointer-events: none;
-      white-space: nowrap;
-    }
 
     .hero-text {
       display: flex;
@@ -119,7 +163,7 @@
     .subtitle {
       font-size: 16px;
       color: var(--muted);
-      margin: 0 0 22px;
+      margin: 0 0 24px;
       line-height: 1.55;
       max-width: 540px;
     }
@@ -212,18 +256,23 @@
 
     /* ── SECTION LABELS ── */
     .section-label {
-      margin: 56px auto 36px;
+      margin: 44px auto 34px;
       display: flex;
       align-items: center;
       gap: 14px;
     }
 
     .section-label .section-star {
-      font-size: 16px;
-      color: #333;
-      line-height: 1;
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #333;
+      transform: rotate(45deg);
+      font-size: 0;
       flex-shrink: 0;
       align-self: center;
+      position: relative;
+      top: -1px;
     }
 
     .section-label span:not(.section-star) {
@@ -395,7 +444,7 @@
       display: grid;
       grid-template-columns: auto 1fr auto auto;
       gap: 20px;
-      padding: 18px 24px;
+      padding: 20px 24px;
       align-items: start;
       border-bottom: 1px solid #ece5d4;
       transition: background 0.15s;
@@ -536,7 +585,7 @@
     @media (max-width: 640px) {
       .container { padding: 40px 20px 60px; }
       .hero { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 24px; }
-      .avatar-frame { width: 140px; height: 140px; }
+      .avatar-frame-wrap { width: 129px; height: 129px; }
       .scribble-arrow { display: none; }
       .scribble-label { top: auto; bottom: 8px; left: auto; right: -8px; transform: rotate(-6deg); }
       .hero-text { padding-top: 0; align-items: center; }
@@ -558,20 +607,17 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="avatar-frame">
-        <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="avatar-link">
-          <img src="assets/avatar.png" alt="Belinda Xu" class="avatar" />
-        </a>
-        <svg class="scribble-arrow" viewBox="0 0 80 60" aria-hidden="true">
-          <path d="M5 40 Q 18 8, 35 30 T 70 18" stroke="#6E4AE6" stroke-width="2.2" fill="none" stroke-linecap="round" />
-          <path d="M68 30 L 70 18 L 61 27" stroke="#6E4AE6" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <span class="scribble-label">that's me!</span>
+      <div class="avatar-frame-wrap">
+        <div class="avatar-frame">
+          <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="avatar-link">
+            <img src="assets/avatar.png" alt="Belinda Xu" class="avatar" />
+          </a>
+        </div>
       </div>
 
       <div class="hero-text">
         <h1>Belinda Xu</h1>
-        <p class="subtitle">Applying data science to supply chain at Apple<br>I like messy data and building models</p>
+        <p class="subtitle">Applying data science to supply chain &amp; systems at Apple<br>I like messy data and building models</p>
 
         <div class="id-card">
           <div class="id-stat">
@@ -716,7 +762,7 @@
     </section>
 
     <!-- MORE PROJECTS -->
-    <section style="margin-top: 64px;">
+    <section style="margin-top: 84px; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0;">
       <div class="section-label">
         <span class="section-star">✦</span>
         <span>MORE&nbsp;PROJECTS</span>
