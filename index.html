@@ -42,113 +42,161 @@
 
     /* ── HERO ── */
     .hero {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 34px;
-      padding: 0 0 60px;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      align-items: start;
-    }
-
-    .avatar-frame-wrap {
       position: relative;
-      width: 220px;
-      height: 220px;
-      flex-shrink: 0;
-      filter: drop-shadow(2px 3px 0 rgba(0,0,0,0.045));
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 40px;
+      padding: 0;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      min-height: 300px;
+      margin-bottom: 80px;
     }
 
-    /* OUTER border shell — clipped pixel corners, taupe/beige */
-    .avatar-frame-wrap::before {
-      content: '';
+    /* ── PIXEL LANDSCAPE ── */
+    .pixel-world {
       position: absolute;
       inset: 0;
-      background: rgba(200,184,163,0.72);
-      clip-path: polygon(
-        8px 0, calc(100% - 8px) 0,
-        calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px,
-        100% 8px,
-        100% calc(100% - 8px),
-        calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px),
-        calc(100% - 8px) 100%,
-        8px 100%,
-        8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px),
-        0 calc(100% - 8px),
-        0 8px,
-        4px 8px, 4px 4px, 8px 4px
-      );
       z-index: 0;
-    }
-
-    .avatar-frame {
-      position: absolute;
-      inset: 3px;
-      background: #fdf9f5;
-      padding: 6px;
-      display: grid;
-      place-items: center;
-      clip-path: polygon(
-        8px 0, calc(100% - 8px) 0,
-        calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px,
-        100% 8px,
-        100% calc(100% - 8px),
-        calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px),
-        calc(100% - 8px) 100%,
-        8px 100%,
-        8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px),
-        0 calc(100% - 8px),
-        0 8px,
-        4px 8px, 4px 4px, 8px 4px
-      );
-      z-index: 1;
-    }
-
-    /* INNER inset border — sits ~8px inside the outer edge */
-    .avatar-frame::before {
-      content: '';
-      position: absolute;
-      inset: 6px;
-      border: 1px solid #c8b8a3;
-      clip-path: polygon(
-        6px 0, calc(100% - 6px) 0,
-        calc(100% - 6px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 6px,
-        100% 6px,
-        100% calc(100% - 6px),
-        calc(100% - 2px) calc(100% - 6px), calc(100% - 2px) calc(100% - 2px), calc(100% - 6px) calc(100% - 2px),
-        calc(100% - 6px) 100%,
-        6px 100%,
-        6px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 6px),
-        0 calc(100% - 6px),
-        0 6px,
-        2px 6px, 2px 2px, 6px 2px
-      );
-      z-index: 2;
       pointer-events: none;
     }
+
+    /* Distant pale hill — soft rolling silhouette */
+    .hill-distant {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 65px;
+      height: 96px;
+      opacity: 0.45;
+      background: #bfc28e;
+      z-index: 0;
+      clip-path: polygon(
+        0% 100%, 0% 60%,
+        13% 50%, 28% 36%,
+        45% 22%, 58% 16%,
+        70% 24%, 84% 38%,
+        94% 52%, 100% 60%,
+        100% 100%
+      );
+    }
+
+    /* Mid olive hill — gentle two-peak roll */
+    .hill-mid {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 25px;
+      height: 93px;
+      opacity: 0.65;
+      background: #afac74;
+      z-index: 1;
+      clip-path: polygon(
+        0% 100%, 0% 52%,
+        9% 44%, 19% 34%,
+        30% 42%, 40% 28%,
+        52% 16%, 63% 25%,
+        73% 36%, 83% 44%,
+        91% 49%, 100% 52%,
+        100% 100%
+      );
+    }
+
+    /* Thin shadow line at grass transition */
+    .grass-shadow {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 47px;
+      height: 3px;
+      background: #7d8a4f;
+      opacity: 0.08;
+      z-index: 2;
+    }
+
+    /* Foreground grass — gently rolling top edge */
+    .grass {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -20px;
+      height: 70px;
+      opacity: 1;
+      background: #adb265;
+      z-index: 2;
+      clip-path: polygon(
+        0% 100%, 0% 16%,
+        7% 13%, 14% 10%, 22% 12%,
+        30% 8%, 39% 11%, 49% 17%,
+        59% 20%, 69% 16%, 79% 11%,
+        88% 14%, 96% 9%, 100% 8%,
+        100% 100%
+      );
+    }
+
+    /* ── PIXEL ORNAMENTS ── */
+    .hero-decor {
+      position: absolute;
+      pointer-events: none;
+      image-rendering: pixelated;
+      z-index: 3;
+    }
+    .hero-decor.cloud-2 { top: 80px; right: 28px; }
+    .hero-decor.cloud-3 { top: 38px; left: 25%; }
+    .hero-decor.sparkle { top: 18px; left: 16px; }
+    .hero-decor.sparkle-2 { top: 62px; left: 55%; }
+    .hero-decor.flower-1 { bottom: 48px; left: 34%; }
+    .hero-decor.flower-2 { bottom: 48px; left: 62%; }
+    .hero-decor.tuft-1 { bottom: 48px; left: 48%; }
+    .hero-decor.tuft-2 { bottom: 48px; left: 78%; }
+
+    /* ── AVATAR ── */
+    .avatar-frame-wrap {
+      position: relative;
+      width: 135px;
+      height: 170px;
+      align-self: end;
+      justify-self: center;
+      z-index: 4;
+      overflow: hidden;
+      transform: translateY(-42px);
+    }
+
+    .avatar-arch { position: absolute; inset: 0; }
+    .avatar-arch::before, .avatar-arch::after { display: none; }
 
     .avatar-link {
       display: block;
       line-height: 0;
       width: 100%;
-      text-align: center;
+      height: 100%;
+      position: relative;
     }
     .avatar-link::after { display: none; }
 
     .avatar {
+      position: absolute;
+      top: 0;
+      left: 50%;
       width: 100%;
-      height: 100%;
+      height: auto;
+      transform: translateX(-50%);
       image-rendering: pixelated;
-      object-fit: cover;
       background: transparent;
       display: block;
     }
 
-
+    /* ── HERO TEXT ── */
     .hero-text {
+      position: relative;
+      z-index: 5;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding-top: 14px;
+      align-self: start;
+      padding-top: 40px;
+      padding-bottom: 30px;
     }
 
     .hero-text h1 {
@@ -170,10 +218,12 @@
 
     /* ── ID-CARD metadata block ── */
     .id-card {
+      position: relative;
+      z-index: 4;
       display: inline-grid;
       grid-template-columns: auto auto auto;
       align-items: stretch;
-      background: #fbf8f2;
+      background: rgba(251, 248, 242, 0.96);
       border: 1px solid #ede5d2;
       border-radius: 10px;
       overflow: hidden;
@@ -285,7 +335,7 @@
       line-height: 1;
     }
 
-    /* ── PROJECT CARD (near-black header) ── */
+    /* ── PROJECT CARD ── */
     .project {
       background: var(--card);
       border: 1px solid var(--card-border, var(--border));
@@ -431,7 +481,7 @@
       padding: 3px 8px;
     }
 
-    /* ── MORE PROJECTS — quiet ToC list ── */
+    /* ── MORE PROJECTS ── */
     .more-list {
       background: #fbf8f2;
       border: 1px solid #ede8d8;
@@ -584,11 +634,32 @@
     /* MOBILE */
     @media (max-width: 640px) {
       .container { padding: 40px 20px 60px; }
-      .hero { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 24px; }
-      .avatar-frame-wrap { width: 140px; height: 140px; }
-      .scribble-arrow { display: none; }
-      .scribble-label { top: auto; bottom: 8px; left: auto; right: -8px; transform: rotate(-6deg); }
-      .hero-text { padding-top: 0; align-items: center; }
+      .hero {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        align-items: start;
+        gap: 0;
+        min-height: 0;
+        padding-bottom: 120px;
+      }
+      .avatar-frame-wrap {
+        width: 155px;
+        height: 185px;
+        transform: none;
+        align-self: start;
+        margin-top: 32px;
+      }
+      .hero-decor.cloud-2 { display: none; }
+      .grass { height: 120px; }
+      .grass-shadow { bottom: 120px; }
+      .hill-mid { height: 200px; }
+      .hill-distant { height: 250px; }
+      .hero-text {
+        padding-top: 16px;
+        padding-bottom: 0;
+        align-items: center;
+      }
       .hero-text h1 { font-size: 36px; }
       .subtitle { max-width: 100%; }
       .id-card { grid-template-columns: 1fr; }
@@ -607,8 +678,74 @@
 
     <!-- HERO -->
     <section class="hero">
+
+      <!-- CSS pixel landscape — spans full hero width behind everything -->
+      <div class="pixel-world" aria-hidden="true">
+        <div class="hill-distant"></div>
+        <div class="hill-mid"></div>
+        <div class="grass-shadow"></div>
+        <div class="grass"></div>
+      </div>
+
+      <!-- extra cloud left of heading -->
+      <svg class="hero-decor cloud-3" width="38" height="14" viewBox="0 0 38 14" shape-rendering="crispEdges" aria-hidden="true">
+        <path d="M4,6 H2 V8 H0 V10 H2 V12 H36 V10 H38 V8 H36 V6 H32 V4 H26 V2 H18 V4 H12 V6 Z" fill="none" stroke="#cbb89d" stroke-width="2"/>
+      </svg>
+      <!-- sky sparkles -->
+      <svg class="hero-decor sparkle" width="40" height="40" viewBox="0 0 20 20" shape-rendering="crispEdges" aria-hidden="true">
+        <!-- sun disc -->
+        <rect x="6" y="6" width="8" height="8" fill="#f4d18a"/>
+        <!-- cardinal rays -->
+        <rect x="9" y="1" width="2" height="4" fill="#ecb143"/>
+        <rect x="9" y="15" width="2" height="4" fill="#ecb143"/>
+        <rect x="1" y="9" width="4" height="2" fill="#ecb143"/>
+        <rect x="15" y="9" width="4" height="2" fill="#ecb143"/>
+        <!-- diagonal rays -->
+        <rect x="2" y="2" width="3" height="3" fill="#ecb143"/>
+        <rect x="15" y="2" width="3" height="3" fill="#ecb143"/>
+        <rect x="2" y="15" width="3" height="3" fill="#ecb143"/>
+        <rect x="15" y="15" width="3" height="3" fill="#ecb143"/>
+      </svg>
+      <svg class="hero-decor sparkle-2" width="10" height="10" viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="4" y="0" width="2" height="3" fill="#ecb143"/>
+        <rect x="4" y="7" width="2" height="3" fill="#ecb143"/>
+        <rect x="0" y="4" width="3" height="2" fill="#ecb143"/>
+        <rect x="7" y="4" width="3" height="2" fill="#ecb143"/>
+        <rect x="3" y="3" width="4" height="4" fill="#f4d18a"/>
+      </svg>
+      <svg class="hero-decor cloud-2" width="64" height="23" viewBox="0 0 44 16" shape-rendering="crispEdges" aria-hidden="true">
+        <path d="M6,8 H4 V10 H2 V12 H4 V14 H40 V12 H42 V10 H40 V8 H36 V6 H30 V4 H22 V6 H16 V8 Z" fill="none" stroke="#cbb89d" stroke-width="2"/>
+      </svg>
+      <!-- tiny pixel flowers -->
+      <svg class="hero-decor flower-1" width="8" height="10" viewBox="0 0 8 10" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="3" y="4" width="2" height="6" fill="#7a8a3c"/>
+        <rect x="2" y="0" width="4" height="2" fill="#e8a0c0"/>
+        <rect x="0" y="2" width="2" height="2" fill="#e8a0c0"/>
+        <rect x="6" y="2" width="2" height="2" fill="#e8a0c0"/>
+        <rect x="3" y="1" width="2" height="3" fill="#f5d0e0"/>
+      </svg>
+      <svg class="hero-decor flower-2" width="8" height="10" viewBox="0 0 8 10" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="3" y="4" width="2" height="6" fill="#7a8a3c"/>
+        <rect x="2" y="0" width="4" height="2" fill="#f0c060"/>
+        <rect x="0" y="2" width="2" height="2" fill="#f0c060"/>
+        <rect x="6" y="2" width="2" height="2" fill="#f0c060"/>
+        <rect x="3" y="1" width="2" height="3" fill="#ffe090"/>
+      </svg>
+      <!-- grass tufts -->
+      <svg class="hero-decor tuft-1" width="12" height="10" viewBox="0 0 12 10" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="1" y="4" width="2" height="6" fill="#6e7a30"/>
+        <rect x="5" y="2" width="2" height="8" fill="#7a8838"/>
+        <rect x="9" y="5" width="2" height="5" fill="#6e7a30"/>
+      </svg>
+      <svg class="hero-decor tuft-2" width="10" height="8" viewBox="0 0 10 8" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="0" y="3" width="2" height="5" fill="#6e7a30"/>
+        <rect x="4" y="1" width="2" height="7" fill="#7a8838"/>
+        <rect x="8" y="4" width="2" height="4" fill="#6e7a30"/>
+      </svg>
+
+      <!-- avatar — floats above terrain via transform -->
       <div class="avatar-frame-wrap">
-        <div class="avatar-frame">
+        <div class="avatar-arch">
           <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="avatar-link">
             <img src="assets/avatar.png" alt="Belinda Xu" class="avatar" />
           </a>
