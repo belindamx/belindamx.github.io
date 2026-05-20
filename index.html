@@ -532,17 +532,26 @@
       .container { padding: 24px 16px 60px; }
       .hero {
         grid-template-columns: 1fr;
-        min-height: 0;
+        min-height: 560px;
         padding-bottom: 0;
       }
       .hero-text {
         padding: 28px 24px 0;
         text-align: center;
         align-items: center;
+        align-self: start;
       }
       .hero-text h1 { font-size: 40px; }
       .subtitle { max-width: 100%; }
-      .avatar-wrap { width: 110px; padding-bottom: 26px; margin-top: 8px; }
+      .avatar-wrap {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 110px;
+        padding-bottom: 26px;
+        margin-top: 0;
+      }
       .id-card { grid-template-columns: 1fr; width: 100%; }
       .id-stat + .id-stat::before { left: 14px; right: 14px; top: 0; bottom: auto; height: 1px; width: auto; }
       .hero-decor.cloud-b { display: none; }
