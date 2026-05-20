@@ -3,23 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F5F1EB" />
+  <meta name="theme-color" content="#f5e6c6" />
   <title>Belinda Xu | Data Science Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
-      --bg: #F7F4EF;
-      --text: #111111;
-      --muted: #444444;
-      --accent: #A6462E;
-      --accent-hover: #82331F;
-      --card: #FFFFFF;
-      --border: #E0D8D0;
-      --header-dark: #843B2A;
-      --header-num: #b39966;
+      /* ── golden-hour meadow palette ── */
+      --bg:           #f5f1e5;   /* page bg — warm off-white */
+      --paper:        #fffbf0;   /* card bg */
+      --paper-edge:   #d4c08a;   /* card border / dividers */
+
+      --sky-top:      #f7d8b4;   /* warm peach */
+      --sky-mid:      #f5e6c6;
+      --sky-bot:      #f0e8c8;
+
+      --hill-far:     #c79a7e;   /* dusty terracotta hill */
+      --hill-mid:     #c1bd5f;   /* warm olive */
+      --grass-top:    #c8c25a;   /* amber green */
+      --grass-bot:    #a89a3a;
+
+      --ink:          #221c10;
+      --ink-soft:     #5a4e35;
+      --label:        #9a7e3e;   /* mustard label */
+      --moss:         #6a4e1a;   /* darker accent for headings/nums */
+
+      --accent:       #b1452a;   /* terracotta link/CTA */
+      --accent-hover: #8a3520;
+      --accent-soft:  #d96a3a;   /* flower / dot */
+      --sun:          #f5b06b;
+      --sun-dark:     #cf7720;
     }
 
     * { box-sizing: border-box; }
@@ -28,259 +43,165 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--ink);
       animation: fadeIn 0.4s ease;
     }
 
     .container {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 64px 20px 80px;
+      padding: 36px 20px 80px;
     }
 
     h1, h2, h3 { margin: 0; }
 
-    /* ── HERO ── */
+    /* ══════════════════════════════════════════════════════════
+       HERO  ·  avatar standing on a sunlit golden meadow
+       ══════════════════════════════════════════════════════════ */
     .hero {
       position: relative;
       display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 40px;
+      grid-template-columns: 260px 1fr;
+      gap: 36px;
       padding: 0;
-      align-items: center;
+      align-items: end;
       overflow: hidden;
       isolation: isolate;
-      min-height: 300px;
-      margin-bottom: 80px;
+      min-height: 400px;
+      border-radius: 16px;
+      background: linear-gradient(180deg,
+        var(--sky-top) 0%,
+        var(--sky-mid) 38%,
+        var(--sky-bot) 60%,
+        var(--sky-bot) 100%);
+      border: 1px solid var(--paper-edge);
+      box-shadow: 0 4px 0 rgba(80, 50, 10, 0.05);
     }
 
-    /* ── PIXEL LANDSCAPE ── */
-    .pixel-world {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
+    .pixel-world { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .hill-far {
+      position: absolute; left:0; right:0; bottom: 64px;
+      height: 110px;
+      background: var(--hill-far); opacity: 0.5;
+      clip-path: polygon(0 100%, 0 55%, 18% 38%, 35% 50%, 55% 30%, 75% 42%, 92% 32%, 100% 38%, 100% 100%);
     }
-
-    /* Distant pale hill — soft rolling silhouette */
-    .hill-distant {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 65px;
-      height: 96px;
-      opacity: 0.45;
-      background: #bfc28e;
-      z-index: 0;
-      clip-path: polygon(
-        0% 100%, 0% 60%,
-        13% 50%, 28% 36%,
-        45% 22%, 58% 16%,
-        70% 24%, 84% 38%,
-        94% 52%, 100% 60%,
-        100% 100%
-      );
-    }
-
-    /* Mid olive hill — gentle two-peak roll */
     .hill-mid {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 25px;
-      height: 93px;
-      opacity: 0.65;
-      background: #afac74;
-      z-index: 1;
-      clip-path: polygon(
-        0% 100%, 0% 52%,
-        9% 44%, 19% 34%,
-        30% 42%, 40% 28%,
-        52% 16%, 63% 25%,
-        73% 36%, 83% 44%,
-        91% 49%, 100% 52%,
-        100% 100%
-      );
+      position: absolute; left:0; right:0; bottom: 44px;
+      height: 96px;
+      background: var(--hill-mid); opacity: 0.9;
+      clip-path: polygon(0 100%, 0 60%, 12% 48%, 28% 36%, 45% 48%, 60% 30%, 78% 42%, 92% 50%, 100% 48%, 100% 100%);
     }
-
-    /* Thin shadow line at grass transition */
-    .grass-shadow {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 47px;
-      height: 3px;
-      background: #7d8a4f;
-      opacity: 0.08;
-      z-index: 2;
-    }
-
-    /* Foreground grass — gently rolling top edge */
     .grass {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -20px;
-      height: 70px;
-      opacity: 1;
-      background: #adb265;
-      z-index: 2;
-      clip-path: polygon(
-        0% 100%, 0% 16%,
-        7% 13%, 14% 10%, 22% 12%,
-        30% 8%, 39% 11%, 49% 17%,
-        59% 20%, 69% 16%, 79% 11%,
-        88% 14%, 96% 9%, 100% 8%,
-        100% 100%
-      );
+      position: absolute; left:0; right:0; bottom: 0;
+      height: 76px;
+      background: linear-gradient(180deg, var(--grass-top) 0%, var(--grass-bot) 100%);
+      clip-path: polygon(0 100%, 0 18%, 8% 14%, 18% 16%, 28% 10%, 40% 14%, 52% 18%, 66% 14%, 78% 10%, 90% 14%, 100% 12%, 100% 100%);
     }
 
-    /* ── PIXEL ORNAMENTS ── */
-    .hero-decor {
-      position: absolute;
-      pointer-events: none;
+    /* sky decor */
+    .hero-decor { position: absolute; pointer-events: none; image-rendering: pixelated; z-index: 3; }
+    .hero-decor.sun     { top: 36px; right: 60px; }
+    .hero-decor.cloud-a { top: 56px; right: 200px; }
+    .hero-decor.cloud-b { top: 110px; right: 340px; }
+
+    /* flowers + tufts on the grass */
+    .meadow-decor { position: absolute; left: 0; right: 0; bottom: 0; height: 76px; z-index: 2; pointer-events: none; }
+    .meadow-decor svg { position: absolute; image-rendering: pixelated; }
+    .meadow-decor .f1 { left: 7%;  bottom: 18px; }
+    .meadow-decor .f2 { left: 16%; bottom: 22px; }
+    .meadow-decor .f3 { left: 36%; bottom: 16px; }
+    .meadow-decor .f4 { left: 50%; bottom: 22px; }
+    .meadow-decor .f5 { left: 64%; bottom: 18px; }
+    .meadow-decor .f6 { left: 76%; bottom: 22px; }
+    .meadow-decor .f7 { left: 88%; bottom: 16px; }
+    .meadow-decor .t1 { left: 24%; bottom: 14px; }
+    .meadow-decor .t2 { left: 58%; bottom: 14px; }
+    .meadow-decor .t3 { left: 82%; bottom: 14px; }
+
+    /* avatar — standing on grass */
+    .avatar-wrap {
+      position: relative;
+      justify-self: center;
+      align-self: end;
+      width: 130px;
+      padding-bottom: 30px;
+      z-index: 4;
+    }
+    .avatar-wrap a { display: block; line-height: 0; position: relative; }
+    .avatar-wrap a::after { display: none; }
+    .avatar {
+      width: 100%; height: auto; display: block;
       image-rendering: pixelated;
+    }
+    .avatar-shadow {
+      position: absolute;
+      bottom: 22px; left: 50%; transform: translateX(-50%);
+      width: 92px; height: 9px;
+      background: radial-gradient(closest-side, rgba(60, 35, 10, 0.32), transparent 78%);
+      filter: blur(2px);
       z-index: 3;
     }
-    .hero-decor.cloud-2 { top: 80px; right: 28px; }
-    .hero-decor.cloud-3 { top: 38px; left: 25%; }
-    .hero-decor.sparkle { top: 18px; left: 16px; }
-    .hero-decor.sparkle-2 { top: 62px; left: 55%; }
-    .hero-decor.flower-1 { bottom: 48px; left: 34%; }
-    .hero-decor.flower-2 { bottom: 48px; left: 62%; }
-    .hero-decor.tuft-1 { bottom: 48px; left: 48%; }
-    .hero-decor.tuft-2 { bottom: 48px; left: 78%; }
 
-    /* ── AVATAR ── */
-    .avatar-frame-wrap {
-      position: relative;
-      width: 122px;
-      height: 153px;
-      align-self: end;
-      justify-self: center;
-      z-index: 4;
-      overflow: hidden;
-      transform: translateY(-42px) translateX(10px);
-    }
-
-    .avatar-arch { position: absolute; inset: 0; }
-    .avatar-arch::before, .avatar-arch::after { display: none; }
-
-    .avatar-link {
-      display: block;
-      line-height: 0;
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-    .avatar-link::after { display: none; }
-
-    .avatar {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 100%;
-      height: auto;
-      transform: translateX(-50%);
-      image-rendering: pixelated;
-      background: transparent;
-      display: block;
-    }
-
-    /* ── HERO TEXT ── */
     .hero-text {
       position: relative;
       z-index: 5;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      align-self: start;
-      padding-top: 40px;
-      padding-bottom: 30px;
+      align-self: center;
+      padding: 36px 36px 36px 0;
     }
 
     .hero-text h1 {
-      font-size: 48px;
+      font-size: 56px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      line-height: 1.05;
+      line-height: 1.02;
       margin: 0 0 14px;
-      color: #0F0F0F;
+      color: var(--ink);
     }
 
     .subtitle {
       font-size: 16px;
-      color: var(--muted);
+      color: var(--ink-soft);
       margin: 0 0 24px;
       line-height: 1.55;
-      max-width: 540px;
+      max-width: 520px;
     }
 
-    /* ── ID-CARD metadata block ── */
+    /* ID card */
     .id-card {
       position: relative;
       z-index: 4;
       display: inline-grid;
       grid-template-columns: auto auto auto;
-      align-items: stretch;
-      background: rgba(251, 248, 242, 0.96);
-      border: 1px solid #ede5d2;
+      background: rgba(255, 251, 240, 0.72);
+      border: 1px solid rgba(212, 192, 138, 0.6);
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 2px 0 rgba(0,0,0,0.03);
+      box-shadow: 0 1px 0 rgba(80, 50, 10, 0.05);
     }
-
-    .id-stat {
-      padding: 12px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      position: relative;
-    }
-
+    .id-stat { padding: 12px 22px; position: relative; display: flex; flex-direction: column; gap: 6px; }
     .id-stat + .id-stat::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 14px;
-      bottom: 14px;
-      width: 1px;
-      background: #e5dcc4;
+      content: ""; position: absolute; left: 0; top: 14px; bottom: 14px;
+      width: 1px; background: rgba(212, 192, 138, 0.5);
     }
-
     .id-stat-label {
       font-family: "Press Start 2P", monospace;
       font-size: 7.5px;
       letter-spacing: 0.22em;
-      color: #a89a7a;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      color: var(--label);
+      display: flex; align-items: center; gap: 6px;
     }
-
     .id-stat-label::before {
-      content: "";
-      width: 4px;
-      height: 4px;
-      background: var(--accent);
-      flex-shrink: 0;
+      content: ""; width: 4px; height: 4px; background: var(--accent); flex-shrink: 0;
     }
-
     .id-stat-value {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: #2a2620;
-      letter-spacing: -0.005em;
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
+      font-size: 13.5px; font-weight: 500; color: var(--ink-soft);
+      display: flex; align-items: baseline; gap: 6px;
     }
-
     .id-stat-sub {
-      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
-      font-size: 11px;
-      color: #9a8a72;
-      font-weight: 400;
+      font-family: ui-monospace, monospace;
+      font-size: 11px; color: #8c7e58; font-weight: 400;
     }
 
     /* ── LINKS ── */
@@ -290,89 +211,94 @@
       position: relative;
       font-weight: 600;
     }
-
     a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0%;
-      height: 2px;
-      background: var(--accent);
+      content: ""; position: absolute; left: 0; bottom: -2px;
+      width: 0%; height: 2px; background: var(--accent);
       transition: width 0.2s ease;
     }
-
     a:hover::after { width: 100%; }
 
-    /* ── SECTION LABELS ── */
-    .section-label {
-      margin: 44px auto 34px;
-      display: flex;
+    /* ══════════════════════════════════════════════════════════
+       HORIZON SECTION DIVIDERS
+       ══════════════════════════════════════════════════════════ */
+    .horizon {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 14px;
+      gap: 18px;
+      margin: 56px 0 36px;
     }
-
-    .section-label .section-star {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      background: #1a1a1a;
-      transform: rotate(45deg);
-      font-size: 0;
-      flex-shrink: 0;
-      align-self: center;
-      position: relative;
-      top: -1px;
+    .horizon-line {
+      height: 2px;
+      background: repeating-linear-gradient(90deg,
+        var(--moss) 0 6px,
+        transparent 6px 12px);
+      opacity: 0.45;
     }
-
-    .section-label span:not(.section-star) {
+    .horizon-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       font-family: "Press Start 2P", monospace;
-      font-size: 9.7px;
-      color: #1a1a1a;
-      letter-spacing: 0.13em;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--moss);
       white-space: nowrap;
+    }
+    .horizon-label .pixel-mark {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      transform: rotate(45deg);
       flex-shrink: 0;
-      line-height: 1;
     }
 
-    /* ── PROJECT CARD ── */
+    /* ══════════════════════════════════════════════════════════
+       PROJECT CARDS
+       ══════════════════════════════════════════════════════════ */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
     .project {
-      background: var(--card);
-      border: 1px solid var(--card-border, var(--border));
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.09);
+      box-shadow: 0 2px 0 rgba(80, 50, 10, 0.06), 0 14px 26px rgba(120, 80, 20, 0.08);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       display: flex;
       flex-direction: column;
     }
-
     .project:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.13);
+      box-shadow: 0 4px 0 rgba(80, 50, 10, 0.06), 0 18px 30px rgba(120, 80, 20, 0.12);
     }
 
+    /* golden-amber header (was sage) */
     .project-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 4px 16px;
-      background: var(--header-dark);
+      padding: 8px 16px;
+      background: linear-gradient(180deg, #eed99c 0%, #d8c068 100%);
+      border-bottom: 1px solid #a98f3e;
+      position: relative;
     }
 
     .project-number {
       font-family: "Press Start 2P", monospace;
       font-size: 11px;
-      color: var(--header-num);
+      color: #5e431a;
       letter-spacing: 0.04em;
       line-height: 1;
       flex-shrink: 0;
     }
 
     .project-thumb {
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       object-fit: contain;
       image-rendering: pixelated;
       display: block;
@@ -381,71 +307,91 @@
 
     .project-divider {
       height: 1px;
-      background: rgba(229,220,198,0.8);
+      background: rgba(80, 50, 10, 0.14);
       border: none;
-      margin: 0 0 20px;
+      margin: 0 0 18px;
     }
 
     .project-body {
-      padding: 26px 18px 24px;
+      padding: 24px 18px 22px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
     .project-body h3 {
-      font-size: 15px;
+      font-size: 15.5px;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 7px;
+      color: var(--ink);
+      margin-bottom: 8px;
       line-height: 1.3;
       letter-spacing: -0.01em;
     }
 
     .project-body p {
-      margin: 0 0 14px;
+      margin: 0 0 16px;
       font-size: 13.5px;
-      color: var(--muted);
-      line-height: 1.6;
+      color: var(--ink-soft);
+      line-height: 1.65;
     }
 
-    /* metric bars */
+    /* metric bars — amber + olive */
     .metric-bars {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin: 0 0 26px;
+      gap: 9px;
+      margin: 0 0 22px;
     }
-
     .metric-row {
       display: grid;
       grid-template-columns: auto 1fr;
       align-items: center;
       gap: 10px;
     }
-
     .metric-label {
-      font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+      font-family: ui-monospace, monospace;
       font-size: 10px;
-      color: #7a6f5e;
+      color: #7a6a45;
       letter-spacing: 0.04em;
       white-space: nowrap;
     }
-
-    .metric-bar-group { display: flex; align-items: center; gap: 6px; }
-
+    .metric-bar-group { display: flex; align-items: center; gap: 8px; }
     .metric-value {
-      font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+      font-family: ui-monospace, monospace;
       font-size: 10.5px;
       font-weight: 700;
-      color: color-mix(in srgb, var(--project-color, #c5613a) 70%, #2b2620);
-      width: 36px;
-      text-align: right;
-      flex-shrink: 0;
+      color: var(--moss);
+      width: 36px; text-align: right; flex-shrink: 0;
+    }
+    .metric-bar-track {
+      flex: 1; height: 6px;
+      background: #f3ecd2;
+      border: 1px solid var(--paper-edge);
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-bar-fill {
+      height: 100%;
+      background: repeating-linear-gradient(90deg,
+        #c1bd5f 0 4px,
+        #8a7e30 4px 5px);
     }
 
-    .metric-bar-track { flex: 1; height: 4px; background: #E7E1DA; }
-    .metric-bar-fill { height: 100%; background: #9B3D27; }
+    .additional-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .additional-tag {
+      font-family: ui-monospace, monospace;
+      font-size: 9.5px;
+      color: var(--moss);
+      background: #f7eecd;
+      border: 1px solid var(--paper-edge);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
 
     .links {
       display: flex;
@@ -454,40 +400,18 @@
       font-size: 13px;
       margin-top: auto;
     }
-
     .project .links a { color: var(--accent); }
     .project .links a::after { background: var(--accent); }
 
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    .additional-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .additional-tag {
-      font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
-      font-size: 9.5px;
-      color: color-mix(in srgb, var(--project-color, #c5613a) 60%, #2b2620);
-      background: color-mix(in srgb, var(--project-color, #c5613a) 6%, #fffdf6);
-      border: 1px solid color-mix(in srgb, var(--project-color, #c5613a) 12%, #e5dcc6);
-      border-radius: 4px;
-      padding: 3px 8px;
-    }
-
-    /* ── MORE PROJECTS ── */
+    /* ══════════════════════════════════════════════════════════
+       MORE PROJECTS — field journal
+       ══════════════════════════════════════════════════════════ */
     .more-list {
-      background: #fbf8f2;
-      border: 1px solid #ede8d8;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(60,40,20,0.04);
+      box-shadow: 0 2px 0 rgba(80, 50, 10, 0.05);
     }
 
     .more-row {
@@ -496,12 +420,11 @@
       gap: 20px;
       padding: 20px 24px;
       align-items: start;
-      border-bottom: 1px solid #ece5d4;
+      border-bottom: 1px solid rgba(212, 192, 138, 0.5);
       transition: background 0.15s;
     }
-
     .more-row:last-child { border-bottom: none; }
-    .more-row:hover { background: #f5efde; }
+    .more-row:hover { background: #fff5d8; }
     .more-row::after { display: none; }
     .more-row { font-weight: 500; color: inherit; }
     a.more-row { text-decoration: none; }
@@ -509,107 +432,81 @@
     .more-num {
       font-family: "Press Start 2P", monospace;
       font-size: 10px;
-      color: #9A9A9A;
+      color: var(--moss);
       letter-spacing: 0.04em;
     }
-
-    .more-title-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
+    .more-title-wrap { display: flex; flex-direction: column; gap: 3px; }
     .more-title {
-      font-size: 14.5px;
-      font-weight: 600;
-      color: #2a2620;
+      font-size: 14.5px; font-weight: 600; color: var(--ink);
       letter-spacing: -0.005em;
     }
-
     .more-subtitle {
-      font-size: 11.5px;
-      color: #8a7f70;
-      font-weight: 400;
-      line-height: 1.4;
+      font-size: 11.5px; color: #8a7e58; font-weight: 400; line-height: 1.4;
     }
-
     .more-tags {
-      display: flex;
-      gap: 8px;
+      display: flex; gap: 8px;
       font-family: ui-monospace, monospace;
-      font-size: 10px;
-      color: #7a7064;
+      font-size: 10px; color: #7a6a45;
     }
-
     .more-arrow {
       color: var(--accent);
       font-weight: 600;
       font-size: 14px;
       transition: transform 0.15s ease;
     }
-
     .more-row:hover .more-arrow { transform: translateX(3px); }
 
-    .more-foot {
-      text-align: center;
-      margin-top: 18px;
-    }
-
+    .more-foot { text-align: center; margin-top: 18px; }
     .more-foot a {
       font-family: ui-monospace, monospace;
       font-size: 11.5px;
-      color: #888;
+      color: #9a7e3e;
       font-weight: 500;
       letter-spacing: 0.04em;
     }
+    .more-foot a::after { background: #9a7e3e; }
 
-    .more-foot a::after { background: #888; }
-
-    /* ── FOOTER ── */
+    /* ══════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════ */
     .site-footer {
+      margin-top: 64px;
+      padding-top: 28px;
+      border-top: 2px dashed rgba(106, 78, 26, 0.4);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 56px;
-      padding-top: 24px;
-      border-top: 1px solid #E0DBD5;
     }
-
     .footer-copy {
       font-family: "Press Start 2P", monospace;
       font-size: 11px;
-      color: #777;
+      color: var(--moss);
     }
-
     .footer-links {
       display: flex;
       align-items: center;
       gap: 20px;
-      opacity: 0.85;
+      opacity: 0.9;
       transition: opacity 0.2s ease;
     }
-
     .footer-links:hover { opacity: 1; }
-
     .footer-contact-label {
       font-family: "Press Start 2P", monospace;
       font-size: 9px;
-      color: #777;
+      color: var(--moss);
       letter-spacing: 0.1em;
       margin-right: 4px;
     }
-
     .footer-link {
       color: var(--accent);
       display: inline-flex;
       align-items: center;
       font-size: 21px;
     }
-
     .footer-link::after { display: none; }
     .footer-link:hover { color: var(--accent-hover); }
 
-    /* subtle grain overlay */
+    /* subtle grain */
     body::after {
       content: "";
       position: fixed;
@@ -626,45 +523,29 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* TABLET */
+    /* responsive */
     @media (max-width: 1040px) {
       .featured-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* MOBILE */
-    @media (max-width: 640px) {
-      .container { padding: 40px 20px 60px; }
+    @media (max-width: 720px) {
+      .container { padding: 24px 16px 60px; }
       .hero {
         grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-        align-items: start;
-        gap: 0;
         min-height: 0;
-        padding-bottom: 120px;
-      }
-      .avatar-frame-wrap {
-        width: 90px;
-        height: 108px;
-        transform: none;
-        align-self: start;
-        margin-top: 32px;
-      }
-      .hero-decor.cloud-2, .hero-decor.cloud-3 { display: none; }
-      .grass { height: 120px; }
-      .grass-shadow { bottom: 120px; }
-      .hill-mid { height: 200px; }
-      .hill-distant { height: 250px; }
-      .hero-text {
-        padding-top: 16px;
         padding-bottom: 0;
+      }
+      .hero-text {
+        padding: 28px 24px 0;
+        text-align: center;
         align-items: center;
       }
-      .hero-text h1 { font-size: 36px; }
+      .hero-text h1 { font-size: 40px; }
       .subtitle { max-width: 100%; }
-      .id-card { grid-template-columns: 1fr; }
+      .avatar-wrap { width: 110px; padding-bottom: 26px; margin-top: 8px; }
+      .id-card { grid-template-columns: 1fr; width: 100%; }
       .id-stat + .id-stat::before { left: 14px; right: 14px; top: 0; bottom: auto; height: 1px; width: auto; }
-      .id-stat { padding: 12px 18px; }
+      .hero-decor.cloud-b { display: none; }
       .featured-grid { grid-template-columns: 1fr; }
       .more-row { grid-template-columns: auto 1fr auto; padding: 14px 16px; gap: 12px; }
       .more-tags { display: none; }
@@ -676,86 +557,132 @@
 <body>
   <main class="container">
 
-    <!-- HERO -->
+    <!-- ══════════ HERO ══════════ -->
     <section class="hero">
-
-      <!-- CSS pixel landscape — spans full hero width behind everything -->
       <div class="pixel-world" aria-hidden="true">
-        <div class="hill-distant"></div>
+        <div class="hill-far"></div>
         <div class="hill-mid"></div>
-        <div class="grass-shadow"></div>
         <div class="grass"></div>
       </div>
 
-      <!-- extra cloud left of heading -->
-      <svg class="hero-decor cloud-3" width="38" height="14" viewBox="0 0 38 14" shape-rendering="crispEdges" aria-hidden="true">
-        <path d="M4,6 H2 V8 H0 V10 H2 V12 H36 V10 H38 V8 H36 V6 H32 V4 H26 V2 H18 V4 H12 V6 Z" fill="none" stroke="#cbb89d" stroke-width="2"/>
+      <!-- warm sun -->
+      <svg class="hero-decor sun" width="56" height="56" viewBox="0 0 20 20" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="6" y="6" width="8" height="8" fill="#f5b06b"/>
+        <rect x="7" y="5" width="6" height="1" fill="#f8d49a"/>
+        <rect x="7" y="14" width="6" height="1" fill="#dc8c2e"/>
+        <rect x="9" y="1" width="2" height="3" fill="#cf7720"/>
+        <rect x="9" y="16" width="2" height="3" fill="#cf7720"/>
+        <rect x="1" y="9" width="3" height="2" fill="#cf7720"/>
+        <rect x="16" y="9" width="3" height="2" fill="#cf7720"/>
+        <rect x="3" y="3" width="2" height="2" fill="#cf7720"/>
+        <rect x="15" y="3" width="2" height="2" fill="#cf7720"/>
+        <rect x="3" y="15" width="2" height="2" fill="#cf7720"/>
+        <rect x="15" y="15" width="2" height="2" fill="#cf7720"/>
       </svg>
-      <!-- sky sparkles -->
-      <svg class="hero-decor sparkle" width="40" height="40" viewBox="0 0 20 20" shape-rendering="crispEdges" aria-hidden="true">
-        <!-- sun disc -->
-        <rect x="6" y="6" width="8" height="8" fill="#f4d18a"/>
-        <!-- cardinal rays -->
-        <rect x="9" y="1" width="2" height="4" fill="#ecb143"/>
-        <rect x="9" y="15" width="2" height="4" fill="#ecb143"/>
-        <rect x="1" y="9" width="4" height="2" fill="#ecb143"/>
-        <rect x="15" y="9" width="4" height="2" fill="#ecb143"/>
-        <!-- diagonal rays -->
-        <rect x="2" y="2" width="3" height="3" fill="#ecb143"/>
-        <rect x="15" y="2" width="3" height="3" fill="#ecb143"/>
-        <rect x="2" y="15" width="3" height="3" fill="#ecb143"/>
-        <rect x="15" y="15" width="3" height="3" fill="#ecb143"/>
+      <!-- warm clouds -->
+      <svg class="hero-decor cloud-a" width="96" height="32" viewBox="0 0 48 16" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="8" y="4" width="6" height="2" fill="#fff4dc"/>
+        <rect x="14" y="2" width="10" height="2" fill="#fff4dc"/>
+        <rect x="24" y="4" width="8" height="2" fill="#fff4dc"/>
+        <rect x="32" y="6" width="6" height="2" fill="#fff4dc"/>
+        <rect x="4" y="6" width="38" height="6" fill="#fff4dc"/>
+        <rect x="6" y="12" width="34" height="2" fill="#e8c98a"/>
       </svg>
-      <svg class="hero-decor sparkle-2" width="10" height="10" viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true">
-        <rect x="4" y="0" width="2" height="3" fill="#ecb143"/>
-        <rect x="4" y="7" width="2" height="3" fill="#ecb143"/>
-        <rect x="0" y="4" width="3" height="2" fill="#ecb143"/>
-        <rect x="7" y="4" width="3" height="2" fill="#ecb143"/>
-        <rect x="3" y="3" width="4" height="4" fill="#f4d18a"/>
-      </svg>
-      <svg class="hero-decor cloud-2" width="64" height="23" viewBox="0 0 44 16" shape-rendering="crispEdges" aria-hidden="true">
-        <path d="M6,8 H4 V10 H2 V12 H4 V14 H40 V12 H42 V10 H40 V8 H36 V6 H30 V4 H22 V6 H16 V8 Z" fill="none" stroke="#cbb89d" stroke-width="2"/>
-      </svg>
-      <!-- tiny pixel flowers -->
-      <svg class="hero-decor flower-1" width="8" height="10" viewBox="0 0 8 10" shape-rendering="crispEdges" aria-hidden="true">
-        <rect x="3" y="4" width="2" height="6" fill="#7a8a3c"/>
-        <rect x="2" y="0" width="4" height="2" fill="#e8a0c0"/>
-        <rect x="0" y="2" width="2" height="2" fill="#e8a0c0"/>
-        <rect x="6" y="2" width="2" height="2" fill="#e8a0c0"/>
-        <rect x="3" y="1" width="2" height="3" fill="#f5d0e0"/>
-      </svg>
-      <svg class="hero-decor flower-2" width="8" height="10" viewBox="0 0 8 10" shape-rendering="crispEdges" aria-hidden="true">
-        <rect x="3" y="4" width="2" height="6" fill="#7a8a3c"/>
-        <rect x="2" y="0" width="4" height="2" fill="#f0c060"/>
-        <rect x="0" y="2" width="2" height="2" fill="#f0c060"/>
-        <rect x="6" y="2" width="2" height="2" fill="#f0c060"/>
-        <rect x="3" y="1" width="2" height="3" fill="#ffe090"/>
-      </svg>
-      <!-- grass tufts -->
-      <svg class="hero-decor tuft-1" width="12" height="10" viewBox="0 0 12 10" shape-rendering="crispEdges" aria-hidden="true">
-        <rect x="1" y="4" width="2" height="6" fill="#6e7a30"/>
-        <rect x="5" y="2" width="2" height="8" fill="#7a8838"/>
-        <rect x="9" y="5" width="2" height="5" fill="#6e7a30"/>
-      </svg>
-      <svg class="hero-decor tuft-2" width="10" height="8" viewBox="0 0 10 8" shape-rendering="crispEdges" aria-hidden="true">
-        <rect x="0" y="3" width="2" height="5" fill="#6e7a30"/>
-        <rect x="4" y="1" width="2" height="7" fill="#7a8838"/>
-        <rect x="8" y="4" width="2" height="4" fill="#6e7a30"/>
+      <svg class="hero-decor cloud-b" width="64" height="22" viewBox="0 0 36 14" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="6" y="4" width="4" height="2" fill="#fff4dc"/>
+        <rect x="10" y="2" width="8" height="2" fill="#fff4dc"/>
+        <rect x="18" y="4" width="6" height="2" fill="#fff4dc"/>
+        <rect x="2" y="6" width="28" height="4" fill="#fff4dc"/>
+        <rect x="4" y="10" width="24" height="2" fill="#e8c98a"/>
       </svg>
 
-      <!-- avatar — floats above terrain via transform -->
-      <div class="avatar-frame-wrap">
-        <div class="avatar-arch">
-          <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="avatar-link">
-            <img src="assets/avatar.png" alt="Belinda Xu" class="avatar" />
-          </a>
-        </div>
+      <!-- wildflowers + tufts on the meadow -->
+      <div class="meadow-decor" aria-hidden="true">
+        <!-- terracotta flower -->
+        <svg class="f1" width="10" height="14" viewBox="0 0 8 12" shape-rendering="crispEdges">
+          <rect x="3" y="5" width="2" height="7" fill="#7a6a30"/>
+          <rect x="2" y="1" width="4" height="2" fill="#d96a3a"/>
+          <rect x="0" y="3" width="2" height="2" fill="#d96a3a"/>
+          <rect x="6" y="3" width="2" height="2" fill="#d96a3a"/>
+          <rect x="3" y="2" width="2" height="3" fill="#ee9a72"/>
+        </svg>
+        <!-- mustard tall -->
+        <svg class="f2" width="10" height="14" viewBox="0 0 8 12" shape-rendering="crispEdges">
+          <rect x="3" y="5" width="2" height="7" fill="#7a6a30"/>
+          <rect x="2" y="1" width="4" height="2" fill="#ffd070"/>
+          <rect x="0" y="3" width="2" height="2" fill="#ffd070"/>
+          <rect x="6" y="3" width="2" height="2" fill="#ffd070"/>
+          <rect x="3" y="2" width="2" height="3" fill="#fff0b0"/>
+        </svg>
+        <!-- orange -->
+        <svg class="f3" width="10" height="14" viewBox="0 0 8 12" shape-rendering="crispEdges">
+          <rect x="3" y="5" width="2" height="7" fill="#7a6a30"/>
+          <rect x="2" y="1" width="4" height="2" fill="#e7855b"/>
+          <rect x="0" y="3" width="2" height="2" fill="#e7855b"/>
+          <rect x="6" y="3" width="2" height="2" fill="#e7855b"/>
+          <rect x="3" y="2" width="2" height="3" fill="#f5b48e"/>
+        </svg>
+        <!-- mustard tall -->
+        <svg class="f4" width="10" height="14" viewBox="0 0 8 12" shape-rendering="crispEdges">
+          <rect x="3" y="5" width="2" height="7" fill="#7a6a30"/>
+          <rect x="2" y="1" width="4" height="2" fill="#ffd070"/>
+          <rect x="0" y="3" width="2" height="2" fill="#ffd070"/>
+          <rect x="6" y="3" width="2" height="2" fill="#ffd070"/>
+          <rect x="3" y="2" width="2" height="3" fill="#fff0b0"/>
+        </svg>
+        <!-- terracotta -->
+        <svg class="f5" width="10" height="14" viewBox="0 0 8 12" shape-rendering="crispEdges">
+          <rect x="3" y="5" width="2" height="7" fill="#7a6a30"/>
+          <rect x="2" y="1" width="4" height="2" fill="#d96a3a"/>
+          <rect x="0" y="3" width="2" height="2" fill="#d96a3a"/>
+          <rect x="6" y="3" width="2" height="2" fill="#d96a3a"/>
+          <rect x="3" y="2" width="2" height="3" fill="#ee9a72"/>
+        </svg>
+        <!-- cream tall -->
+        <svg class="f6" width="10" height="14" viewBox="0 0 8 12" shape-rendering="crispEdges">
+          <rect x="3" y="5" width="2" height="7" fill="#7a6a30"/>
+          <rect x="2" y="1" width="4" height="2" fill="#fff0b0"/>
+          <rect x="0" y="3" width="2" height="2" fill="#fff0b0"/>
+          <rect x="6" y="3" width="2" height="2" fill="#fff0b0"/>
+          <rect x="3" y="2" width="2" height="3" fill="#ffffee"/>
+        </svg>
+        <!-- orange -->
+        <svg class="f7" width="10" height="14" viewBox="0 0 8 12" shape-rendering="crispEdges">
+          <rect x="3" y="5" width="2" height="7" fill="#7a6a30"/>
+          <rect x="2" y="1" width="4" height="2" fill="#e7855b"/>
+          <rect x="0" y="3" width="2" height="2" fill="#e7855b"/>
+          <rect x="6" y="3" width="2" height="2" fill="#e7855b"/>
+          <rect x="3" y="2" width="2" height="3" fill="#f5b48e"/>
+        </svg>
+        <!-- tufts -->
+        <svg class="t1" width="14" height="12" viewBox="0 0 12 10" shape-rendering="crispEdges">
+          <rect x="1" y="4" width="2" height="6" fill="#6e6028"/>
+          <rect x="5" y="2" width="2" height="8" fill="#7a6a30"/>
+          <rect x="9" y="5" width="2" height="5" fill="#6e6028"/>
+        </svg>
+        <svg class="t2" width="14" height="12" viewBox="0 0 12 10" shape-rendering="crispEdges">
+          <rect x="1" y="4" width="2" height="6" fill="#6e6028"/>
+          <rect x="5" y="2" width="2" height="8" fill="#7a6a30"/>
+          <rect x="9" y="5" width="2" height="5" fill="#6e6028"/>
+        </svg>
+        <svg class="t3" width="12" height="10" viewBox="0 0 10 8" shape-rendering="crispEdges">
+          <rect x="0" y="3" width="2" height="5" fill="#6e6028"/>
+          <rect x="4" y="1" width="2" height="7" fill="#7a6a30"/>
+          <rect x="8" y="4" width="2" height="4" fill="#6e6028"/>
+        </svg>
+      </div>
+
+      <!-- AVATAR standing on grass -->
+      <div class="avatar-wrap">
+        <div class="avatar-shadow"></div>
+        <a href="https://www.linkedin.com/in/belindax/" target="_blank">
+          <img src="assets/avatar.png" alt="Belinda Xu" class="avatar" />
+        </a>
       </div>
 
       <div class="hero-text">
         <h1>Belinda Xu</h1>
-        <p class="subtitle">Applying data science to supply chain &amp; systems at Apple<br>I like messy data and building models</p>
-
+        <p class="subtitle">Applying data science to supply chain &amp; systems at Apple.<br>I like messy data and building models.</p>
         <div class="id-card">
           <div class="id-stat">
             <span class="id-stat-label">EDU</span>
@@ -773,24 +700,25 @@
       </div>
     </section>
 
-    <!-- SELECTED WORK -->
+    <!-- ══════════ SELECTED WORK ══════════ -->
     <section>
-      <div class="section-label">
-        <span class="section-star">✦</span>
-        <span>SELECTED&nbsp;WORK</span>
-        <span class="section-star">✦</span>
+      <div class="horizon">
+        <div class="horizon-line"></div>
+        <div class="horizon-label">
+          SELECTED&nbsp;WORK
+        </div>
+        <div class="horizon-line"></div>
       </div>
 
       <div class="featured-grid">
-
-        <div class="project" style="--project-color: #B85A3A; --card-border: #ede8d8;">
+        <div class="project">
           <div class="project-header">
             <span class="project-number">01</span>
-            <img src="assets/graph.png" alt="Graph-Based Song Recommender" class="project-thumb" />
+            <img src="assets/graph.png" alt="" class="project-thumb" />
           </div>
           <div class="project-body">
             <h3>Graph-Based Song Recommender</h3>
-            <p>Recommender system using community detection and centrality to generate local and cross-community music paths</p>
+            <p>Recommender system using community detection and centrality to generate local and cross-community music paths.</p>
             <div class="metric-bars">
               <div class="metric-row">
                 <span class="metric-label">Nodes</span>
@@ -816,19 +744,19 @@
             <div class="links">
               <a href="https://song-path.streamlit.app/" target="_blank">App</a>
               <a href="assets/recommender_paper.pdf" target="_blank">Paper</a>
-              <a href="https://github.com/belindamx/song-recommender" target="_blank">Github</a>
+              <a href="https://github.com/belindamx/song-recommender" target="_blank">GitHub</a>
             </div>
           </div>
         </div>
 
-        <div class="project" style="--project-color: #B85A3A; --card-border: #ede8d8;">
+        <div class="project">
           <div class="project-header">
             <span class="project-number">02</span>
-            <img src="assets/bike.png" alt="Bike-Share Demand Prediction" class="project-thumb" />
+            <img src="assets/bike.png" alt="" class="project-thumb" />
           </div>
           <div class="project-body">
             <h3>Bike-Share Demand Prediction</h3>
-            <p>Hourly bike forecasting using regression, gradient boosting, and neural networks on temporal and weather features</p>
+            <p>Hourly bike forecasting using regression, gradient boosting, and neural networks on temporal and weather features.</p>
             <div class="metric-bars">
               <div class="metric-row">
                 <span class="metric-label">XGBoost R²</span>
@@ -853,19 +781,19 @@
             <hr class="project-divider" />
             <div class="links">
               <a href="assets/bike_prediction_paper.pdf" target="_blank">Paper</a>
-              <a href="https://github.com/belindamx/bike-demand-prediction" target="_blank">Github</a>
+              <a href="https://github.com/belindamx/bike-demand-prediction" target="_blank">GitHub</a>
             </div>
           </div>
         </div>
 
-        <div class="project" style="--project-color: #B85A3A; --card-border: #ede8d8;">
+        <div class="project">
           <div class="project-header">
             <span class="project-number">03</span>
-            <img src="assets/chess.png" alt="Chess Analytics Dashboard" class="project-thumb" />
+            <img src="assets/chess.png" alt="" class="project-thumb" />
           </div>
           <div class="project-body">
             <h3>Chess Analytics Dashboard</h3>
-            <p>Interactive Streamlit dashboard analyzing rating progression, player behavior clustering, and a "Play Me" opponent bot</p>
+            <p>Interactive Streamlit dashboard analyzing rating progression, player behavior clustering, and a "Play Me" opponent bot.</p>
             <div class="metric-bars">
               <div class="metric-row">
                 <span class="metric-label">Games</span>
@@ -894,16 +822,17 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- MORE PROJECTS -->
-    <section style="margin-top: 84px; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0;">
-      <div class="section-label">
-        <span class="section-star">✦</span>
-        <span>MORE&nbsp;PROJECTS</span>
-        <span class="section-star">✦</span>
+    <!-- ══════════ MORE PROJECTS ══════════ -->
+    <section>
+      <div class="horizon">
+        <div class="horizon-line"></div>
+        <div class="horizon-label">
+          MORE&nbsp;PROJECTS
+        </div>
+        <div class="horizon-line"></div>
       </div>
 
       <div class="more-list">
@@ -941,7 +870,7 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ══════════ FOOTER ══════════ -->
     <footer class="site-footer">
       <span class="footer-copy">© 2026</span>
       <div class="footer-links">
