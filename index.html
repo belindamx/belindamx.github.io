@@ -48,7 +48,7 @@
     }
 
     .container {
-      max-width: 1040px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 36px 20px 80px;
     }
@@ -61,13 +61,13 @@
     .hero {
       position: relative;
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 230px 1fr;
       gap: 36px;
       padding: 0;
       align-items: end;
       overflow: hidden;
       isolation: isolate;
-      min-height: 400px;
+      min-height: 340px;
       border-radius: 16px;
       background: linear-gradient(180deg,
         var(--sky-top) 0%,
@@ -107,23 +107,24 @@
     /* flowers + tufts on the grass */
     .meadow-decor { position: absolute; left: 0; right: 0; bottom: 0; height: 76px; z-index: 2; pointer-events: none; }
     .meadow-decor svg { position: absolute; image-rendering: pixelated; }
-    .meadow-decor .f1 { left: 7%;  bottom: 18px; }
-    .meadow-decor .f2 { left: 16%; bottom: 22px; }
-    .meadow-decor .f3 { left: 36%; bottom: 16px; }
-    .meadow-decor .f4 { left: 50%; bottom: 22px; }
-    .meadow-decor .f5 { left: 64%; bottom: 18px; }
-    .meadow-decor .f6 { left: 76%; bottom: 22px; }
-    .meadow-decor .f7 { left: 88%; bottom: 16px; }
-    .meadow-decor .t1 { left: 24%; bottom: 14px; }
-    .meadow-decor .t2 { left: 58%; bottom: 14px; }
-    .meadow-decor .t3 { left: 82%; bottom: 14px; }
+    .meadow-decor .f1 { left: 18%; bottom: 18px; }
+    .meadow-decor .f2 { left: 26%; bottom: 22px; }
+    .meadow-decor .f3 { display: none; }
+    .meadow-decor .f4 { display: none; }
+    .meadow-decor .f5 { left: 72%; bottom: 20px; }
+    .meadow-decor .f6 { display: none; }
+    .meadow-decor .f7 { left: 86%; bottom: 16px; }
+    .meadow-decor .t1 { display: none; }
+    .meadow-decor .t2 { left: 56%; bottom: 14px; }
+    .meadow-decor .t3 { display: none; }
 
     /* avatar — standing on grass */
     .avatar-wrap {
       position: relative;
       justify-self: center;
+      margin-left: 32px;
       align-self: end;
-      width: 130px;
+      width: 110px;
       padding-bottom: 30px;
       z-index: 4;
     }
@@ -135,11 +136,15 @@
     }
     .avatar-shadow {
       position: absolute;
-      bottom: 22px; left: 50%; transform: translateX(-50%);
-      width: 92px; height: 9px;
-      background: radial-gradient(closest-side, rgba(60, 35, 10, 0.32), transparent 78%);
-      filter: blur(2px);
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-55%);
+      width: 110px;
+      height: 12px;
+      background: radial-gradient(ellipse closest-side, rgba(50, 28, 8, 0.45) 0%, rgba(50, 28, 8, 0.18) 60%, transparent 90%);
+      filter: blur(2.5px);
       z-index: 3;
+      pointer-events: none;
     }
 
     .hero-text {
@@ -152,7 +157,7 @@
     }
 
     .hero-text h1 {
-      font-size: 56px;
+      font-size: 50px;
       font-weight: 800;
       letter-spacing: -0.5px;
       line-height: 1.02;
@@ -186,11 +191,13 @@
       width: 1px; background: rgba(212, 192, 138, 0.5);
     }
     .id-stat-label {
-      font-family: "Press Start 2P", monospace;
-      font-size: 7.5px;
-      letter-spacing: 0.22em;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
       color: var(--label);
       display: flex; align-items: center; gap: 6px;
+      text-transform: uppercase;
     }
     .id-stat-label::before {
       content: ""; width: 4px; height: 4px; background: var(--accent); flex-shrink: 0;
@@ -201,7 +208,7 @@
     }
     .id-stat-sub {
       font-family: ui-monospace, monospace;
-      font-size: 11px; color: #8c7e58; font-weight: 400;
+      font-size: 11px; color: #6d6244; font-weight: 400;
     }
 
     /* ── LINKS ── */
@@ -229,11 +236,9 @@
       margin: 56px 0 36px;
     }
     .horizon-line {
-      height: 2px;
-      background: repeating-linear-gradient(90deg,
-        var(--moss) 0 6px,
-        transparent 6px 12px);
-      opacity: 0.45;
+      height: 1px;
+      background: var(--moss);
+      opacity: 0.32;
     }
     .horizon-label {
       display: inline-flex;
@@ -277,32 +282,16 @@
       box-shadow: 0 4px 0 rgba(80, 50, 10, 0.06), 0 18px 30px rgba(120, 80, 20, 0.12);
     }
 
-    /* golden-amber header (was sage) */
-    .project-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 16px;
-      background: linear-gradient(180deg, #eed99c 0%, #d8c068 100%);
-      border-bottom: 1px solid #a98f3e;
-      position: relative;
-    }
-
+    /* project number — inline label above title */
     .project-number {
       font-family: "Press Start 2P", monospace;
-      font-size: 11px;
-      color: #5e431a;
-      letter-spacing: 0.04em;
+      font-size: 18px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
       line-height: 1;
       flex-shrink: 0;
-    }
-
-    .project-thumb {
-      width: 40px; height: 40px;
-      object-fit: contain;
-      image-rendering: pixelated;
-      display: block;
-      flex-shrink: 0;
+      display: inline-block;
+      margin-bottom: 14px;
     }
 
     .project-divider {
@@ -313,19 +302,19 @@
     }
 
     .project-body {
-      padding: 24px 18px 22px;
+      padding: 30px 22px 24px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
     .project-body h3 {
-      font-size: 15.5px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--ink);
-      margin-bottom: 8px;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
     }
 
     .project-body p {
@@ -372,9 +361,7 @@
     }
     .metric-bar-fill {
       height: 100%;
-      background: repeating-linear-gradient(90deg,
-        #c1bd5f 0 4px,
-        #8a7e30 4px 5px);
+      background: var(--label);
     }
 
     .additional-tags {
@@ -416,10 +403,10 @@
 
     .more-row {
       display: grid;
-      grid-template-columns: auto 1fr auto auto;
-      gap: 20px;
-      padding: 20px 24px;
-      align-items: start;
+      grid-template-columns: 1fr auto auto;
+      gap: 24px;
+      padding: 22px 24px;
+      align-items: center;
       border-bottom: 1px solid rgba(212, 192, 138, 0.5);
       transition: background 0.15s;
     }
@@ -430,9 +417,10 @@
     a.more-row { text-decoration: none; }
 
     .more-num {
-      font-family: "Press Start 2P", monospace;
-      font-size: 10px;
-      color: var(--moss);
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--label);
       letter-spacing: 0.04em;
     }
     .more-title-wrap { display: flex; flex-direction: column; gap: 3px; }
@@ -441,12 +429,12 @@
       letter-spacing: -0.005em;
     }
     .more-subtitle {
-      font-size: 11.5px; color: #8a7e58; font-weight: 400; line-height: 1.4;
+      font-size: 12.5px; color: #665838; font-weight: 400; line-height: 1.45;
     }
     .more-tags {
       display: flex; gap: 8px;
-      font-family: ui-monospace, monospace;
-      font-size: 10px; color: #7a6a45;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 11px; color: #6d6244; font-weight: 500;
     }
     .more-arrow {
       color: var(--accent);
@@ -459,10 +447,11 @@
     .more-foot { text-align: center; margin-top: 18px; }
     .more-foot a {
       font-family: ui-monospace, monospace;
-      font-size: 11.5px;
-      color: #9a7e3e;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-size: 12px;
+      color: #8a6e2e;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
     .more-foot a::after { background: #9a7e3e; }
 
@@ -478,8 +467,9 @@
       align-items: center;
     }
     .footer-copy {
-      font-family: "Press Start 2P", monospace;
-      font-size: 11px;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+      font-weight: 500;
       color: var(--moss);
     }
     .footer-links {
@@ -491,10 +481,12 @@
     }
     .footer-links:hover { opacity: 1; }
     .footer-contact-label {
-      font-family: "Press Start 2P", monospace;
-      font-size: 9px;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+      font-weight: 600;
       color: var(--moss);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-right: 4px;
     }
     .footer-link {
@@ -524,7 +516,7 @@
     }
 
     /* responsive */
-    @media (max-width: 1040px) {
+    @media (max-width: 1180px) {
       .featured-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -556,8 +548,8 @@
       .id-stat + .id-stat::before { left: 14px; right: 14px; top: 0; bottom: auto; height: 1px; width: auto; }
       .hero-decor.cloud-b { display: none; }
       .featured-grid { grid-template-columns: 1fr; }
-      .more-row { grid-template-columns: auto 1fr auto; padding: 14px 16px; gap: 12px; }
-      .more-tags { display: none; }
+      .more-row { grid-template-columns: 1fr auto; padding: 14px 16px; gap: 12px; }
+      .more-tags { display: none !important; }
       .site-footer { flex-direction: column; gap: 16px; }
     }
   </style>
@@ -721,11 +713,8 @@
 
       <div class="featured-grid">
         <div class="project">
-          <div class="project-header">
-            <span class="project-number">01</span>
-            <img src="assets/graph.png" alt="" class="project-thumb" />
-          </div>
           <div class="project-body">
+            <span class="project-number">01</span>
             <h3>Graph-Based Song Recommender</h3>
             <p>Recommender system using community detection and centrality to generate local and cross-community music paths.</p>
             <div class="metric-bars">
@@ -759,11 +748,8 @@
         </div>
 
         <div class="project">
-          <div class="project-header">
-            <span class="project-number">02</span>
-            <img src="assets/bike.png" alt="" class="project-thumb" />
-          </div>
           <div class="project-body">
+            <span class="project-number">02</span>
             <h3>Bike-Share Demand Prediction</h3>
             <p>Hourly bike forecasting using regression, gradient boosting, and neural networks on temporal and weather features.</p>
             <div class="metric-bars">
@@ -796,11 +782,8 @@
         </div>
 
         <div class="project">
-          <div class="project-header">
-            <span class="project-number">03</span>
-            <img src="assets/chess.png" alt="" class="project-thumb" />
-          </div>
           <div class="project-body">
+            <span class="project-number">03</span>
             <h3>Chess Analytics Dashboard</h3>
             <p>Interactive Streamlit dashboard analyzing rating progression, player behavior clustering, and a "Play Me" opponent bot.</p>
             <div class="metric-bars">
@@ -846,7 +829,6 @@
 
       <div class="more-list">
         <a class="more-row" href="https://github.com/belindamx/sfpd-police-stop-regression" target="_blank">
-          <span class="more-num">04</span>
           <span class="more-title-wrap">
             <span class="more-title">SFPD Stop Duration by Perceived Demographics</span>
             <span class="more-subtitle">Regression analysis of stop duration by perceived race, age, and gender</span>
@@ -855,7 +837,6 @@
           <span class="more-arrow">→</span>
         </a>
         <a class="more-row" href="https://github.com/belindamx/anes-gov-trust-analysis" target="_blank">
-          <span class="more-num">05</span>
           <span class="more-title-wrap">
             <span class="more-title">Trust in Government by Party Affiliation</span>
             <span class="more-subtitle">Wilcoxon tests and effect sizes on ANES survey data to compare trust across party lines</span>
@@ -864,7 +845,6 @@
           <span class="more-arrow">→</span>
         </a>
         <a class="more-row" href="https://github.com/belindamx/california-crash-eda" target="_blank">
-          <span class="more-num">06</span>
           <span class="more-title-wrap">
             <span class="more-title">California Car Crash EDA</span>
             <span class="more-subtitle">Exploratory analysis of CCRS crash records to identify high-risk collision patterns</span>
@@ -881,7 +861,7 @@
 
     <!-- ══════════ FOOTER ══════════ -->
     <footer class="site-footer">
-      <span class="footer-copy">© 2026</span>
+      <span class="footer-copy">© 2026 BELINDA XU</span>
       <div class="footer-links">
         <span class="footer-contact-label">CONTACT:</span>
         <a href="https://github.com/belindamx" target="_blank" class="footer-link" aria-label="GitHub">
@@ -890,12 +870,42 @@
         <a href="https://www.linkedin.com/in/belindax/" target="_blank" class="footer-link" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin"></i>
         </a>
-        <a href="mailto:mxu.belinda@gmail.com" class="footer-link" aria-label="Email">
+        <a href="/cdn-cgi/l/email-protection#45283d306b2720292c2b2124052228242c296b262a28" class="footer-link" aria-label="Email">
           <i class="fa-regular fa-envelope"></i>
         </a>
       </div>
     </footer>
 
   </main>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Meadow parallax — background layers lag behind scroll for depth
+    (() => {
+      const layers = [
+        { el: document.querySelector('.hill-far'),         rate: 0.50 },
+        { el: document.querySelector('.hill-mid'),         rate: 0.30 },
+        { el: document.querySelector('.hero-decor.sun'),   rate: 0.55 },
+        { el: document.querySelector('.hero-decor.cloud-a'), rate: 0.50 },
+        { el: document.querySelector('.hero-decor.cloud-b'), rate: 0.45 },
+      ].filter(l => l.el);
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !layers.length) return;
+
+      let ticking = false;
+      function update() {
+        const y = window.scrollY;
+        for (const { el, rate } of layers) {
+          el.style.transform = `translateY(${(y * rate).toFixed(1)}px)`;
+        }
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
