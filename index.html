@@ -924,6 +924,14 @@ body.header-continuous { --bg:#f7f9fa; }
  .graph-metrics dd { font-size:1.65rem; }
 }
 
+</style><style>
+#project-ai .effect-table .primary-outcome > * { background:#e5eef5; color:#304f65; font-weight:600; }
+#project-ai .effect-table .primary-outcome > td:first-of-type { color:#315d7d; font-weight:700; }
+.ai-visual-art { display:block; width:100%; border:1px solid var(--line); background:white; }
+.ai-visual-art img { display:block; width:100%; height:auto; }
+.ai-visual-art:focus-visible { outline:3px solid #779db8; outline-offset:3px; }
+.experiment-figure .figure-heading { margin-bottom:.75rem; }
+.experiment-figure figcaption { font-size:.76rem; line-height:1.5; margin:.65rem 0; }
 </style></head><body class="index layout-menu header-continuous focus-layout"><a class="skip" href="#main">Skip to content</a><div class="shell">
 <header class="masthead"><a class="brand" href="#main">Belinda Xu <svg class="berry" viewBox="0 0 12 15" shape-rendering="crispEdges" aria-hidden="true"><path fill="#667550" d="M6 0h1v3H6zM3 2h3v1h3v1h1v1H2V3h1z"/><path fill="#b6634e" d="M2 5h8v1h1v5h-1v1H9v1H8v1H4v-1H3v-1H2v-1H1V6h1z"/><path fill="#f3dbab" d="M3 6h1v1H3zM8 7h1v1H8zM5 9h1v1H5zM7 11h1v1H7zM4 12h1v1H4z"/></svg></a>
 <nav class="header-links" aria-label="Profile links"><a href="https://www.linkedin.com/in/belindax/">LinkedIn <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="https://github.com/belindamx">GitHub <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav></header>
@@ -937,7 +945,7 @@ body.header-continuous { --bg:#f7f9fa; }
 </section>
 <div class="tabs" role="tablist" aria-label="Portfolio sections"><button type="button" role="tab" id="tab-projects" aria-controls="panel-projects" aria-selected="true" tabindex="0">Projects</button><button type="button" role="tab" id="tab-experience" aria-controls="panel-experience" aria-selected="false" tabindex="-1">Experience</button><button type="button" role="tab" id="tab-education" aria-controls="panel-education" aria-selected="false" tabindex="-1">Education</button></div>
 <section class="panel projects" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
-<div class="section-head"><h2>Selected projects</h2></div><div class="project-layout">
+<div class="project-layout">
 <div class="project-body">
 <article class="featured project feature-matched" id="project-ai">
 <div class="project-head"><div class="project-image"><svg aria-hidden="true" focusable="false" viewBox="0 0 152 116" fill="none">
@@ -948,15 +956,9 @@ body.header-continuous { --bg:#f7f9fa; }
 <path d="M88 70h34M88 80h23" stroke="var(--ai-soft)" stroke-width="2" stroke-linecap="round"/>
 <path d="M106 18v18m-8-8h16" stroke="var(--ai-ink)" stroke-width="2.2" stroke-linecap="round"/>
 </svg></div><div class="project-heading"><p class="eyebrow">Causal inference</p><h3>AI summaries &amp; opinion extremity</h3><p class="desc">Do AI-generated summaries affect opinion extremity in online discussions?</p></div><div class="links"><a href="assets/ai_summary_experiment_bx.pdf">Paper <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="https://github.com/belindamx/ai-summaries-opinion-extremity">Code <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
-<div class="project-focus"><div class="focus-copy"><h4>Results</h4><table class="effect-table" aria-label="Adjusted treatment effects"><thead><tr><th scope="col">Outcome</th><th scope="col">Adjusted effect</th><th scope="col">95% CI</th></tr></thead><tbody><tr><th scope="row">Opinion extremity</th><td>0.006</td><td>[−0.159, 0.171]</td></tr><tr><th scope="row">Perceived public support</th><td>−0.231</td><td>[−0.456, −0.005]</td></tr></tbody></table><p class="study-sample-note">230 survey participants read 3 topics each, giving 690 participant-topic observations</p><p class="project-takeaway">No clear evidence that summaries reduced opinion extremity.</p></div><figure class="survey-figure focus-visual experiment-figure" aria-label="Experiment design: the same post and comments, with or without an AI summary">
-<h4 class="figure-heading">Experiment design</h4>
-<div class="experiment-arms">
-<section class="experiment-arm"><h5>Control<span>Without summary</span></h5><div class="thread-preview"><div class="thread-block">Original post</div><div class="summary-space" aria-hidden="true"></div><div class="thread-block">Comments</div></div></section>
-<section class="experiment-arm"><h5>Treatment<span>With AI summary</span></h5><div class="thread-preview"><div class="thread-block">Original post</div><div class="summary-block">AI summary</div><div class="thread-block">Comments</div></div></section>
-</div>
-<figcaption>Opinions measured before and after reading</figcaption>
-<button type="button" class="survey-open" data-survey-open aria-haspopup="dialog" aria-label="Enlarge the experiment survey screens"><span>View original survey screens <span aria-hidden="true">＋</span></span></button>
-</figure></div>
+<div class="project-focus"><div class="focus-copy"><h4>Results</h4><table class="effect-table" aria-label="Adjusted treatment effects"><thead><tr><th scope="col">Outcome</th><th scope="col">Adjusted effect</th><th scope="col">95% CI</th></tr></thead><tbody><tr class="primary-outcome"><th scope="row">Opinion extremity</th><td>0.006</td><td>[−0.159, 0.171]</td></tr><tr><th scope="row">Perceived public support</th><td>−0.231</td><td>[−0.456, −0.005]</td></tr></tbody></table><p class="study-sample-note">230 survey participants read 3 topics each, giving 690 participant-topic observations</p><p class="project-takeaway">No clear evidence that summaries reduced opinion extremity.</p></div><figure class="survey-figure focus-visual experiment-figure"><h4 class="figure-heading">Experiment design</h4>
+<a class="ai-visual-art" href="assets/ai-study-flow.svg" target="_blank" rel="noopener" aria-label="Open a larger experiment design visual"><picture><source media="(max-width:600px)" srcset="assets/ai-study-flow-mobile.svg"><img src="assets/ai-study-flow.svg" alt="A randomized study with control and treatment paths. Both groups read the same post and comments; the treatment group also sees an AI summary."></picture></a>
+<figcaption>Opinions and perceived support measured before and after reading</figcaption><button type="button" class="survey-open" data-survey-open aria-haspopup="dialog" aria-label="Enlarge the experiment survey screens"><span>View original survey screens <span aria-hidden="true">＋</span></span></button></figure></div>
 <section class="method focus-method"><h4>Methods</h4><div class="method-body"><ul>
 <li>Randomly assigned readers to Reddit-style discussions with or without an AI summary</li>
 <li>Measured opinions and perceived public support before and after reading about AI data centers, police body cameras, and capital punishment</li>
@@ -1036,7 +1038,7 @@ body.header-continuous { --bg:#f7f9fa; }
 </header>
 <div class="experience-contributions">
 <div class="scope"><h5>Global supply chain manufacturing</h5><p>Build the global supply chain for a first-generation consumer hardware product, focusing on automation and test equipment for final assembly, test, and pack (FATP).</p></div>
-<div class="scope"><h5>Data pipelines &amp; systems</h5><p>Build data pipelines with Codex to automate processing and analysis of supply chain and manufacturing data.</p></div></div>
+<div class="scope"><h5>Data pipelines &amp; systems</h5><p>Create data pipelines with Codex to automate processing and analysis of supply chain and manufacturing data.</p></div></div>
 </article>
 <article class="experience-card" aria-labelledby="role-apple">
 <header class="experience-card-head">
@@ -1064,7 +1066,7 @@ body.header-continuous { --bg:#f7f9fa; }
       <h4 id="advanced-heading">Advanced coursework</h4>
       <ul class="advanced-courses">
         <li><h5>Generative Artificial Intelligence</h5><p>TensorFlow / PyTorch</p></li>
-        <li><h5>Field Experiments &amp; Causal Inference</h5><p>R</p></li>
+        <li><h5>Field Experiments &amp; Causal Inference</h5><p>R · Python</p></li>
         <li><h5>Machine Learning Systems Engineering</h5><p>Docker / Kubernetes</p></li>
       </ul>
     </section>
