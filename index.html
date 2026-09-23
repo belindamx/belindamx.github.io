@@ -806,7 +806,21 @@ img { max-width: 100%; }
   .undergraduate-card div>p { font-size:.93rem; }
 }
 
-</style></head><body class="index layout-menu"><a class="skip" href="#main">Skip to content</a><div class="shell">
+</style><style>
+/* Continuous background connects the introduction, navigation, and content. */
+body.header-continuous { --bg:#f7f9fa; }
+.header-continuous .masthead,.header-continuous .hero {
+  background:transparent; box-shadow:none; clip-path:none;
+}
+.header-continuous .hero { padding-bottom:1.6rem; }
+.header-continuous .tabs { padding:.25rem 0 .9rem; border-bottom:1px solid #c6d0d6; }
+.header-continuous .panel { padding-top:1.7rem; }
+@media(max-width:600px) {
+  .header-continuous .hero { padding-bottom:1.45rem; }
+  .header-continuous .tabs { padding-bottom:.8rem; }
+  .header-continuous .panel { padding-top:1.4rem; }
+}
+</style></head><body class="index layout-menu header-continuous"><a class="skip" href="#main">Skip to content</a><div class="shell">
 <header class="masthead"><a class="brand" href="#main">Belinda Xu <svg class="berry" viewBox="0 0 12 15" shape-rendering="crispEdges" aria-hidden="true"><path fill="#667550" d="M6 0h1v3H6zM3 2h3v1h3v1h1v1H2V3h1z"/><path fill="#b6634e" d="M2 5h8v1h1v5h-1v1H9v1H8v1H4v-1H3v-1H2v-1H1V6h1z"/><path fill="#f3dbab" d="M3 6h1v1H3zM8 7h1v1H8zM5 9h1v1H5zM7 11h1v1H7zM4 12h1v1H4z"/></svg></a>
 <nav class="header-links" aria-label="Profile links"><a href="https://www.linkedin.com/in/belindax/">LinkedIn <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="https://github.com/belindamx">GitHub <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav></header>
 <main id="main">
