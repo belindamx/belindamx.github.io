@@ -371,7 +371,7 @@ img { max-width: 100%; }
 /* Each project uses one tint for its header, artwork, and result highlights. */
 :root {
   --ai-tint:#e8edf0; --ai-ink:#536477; --ai-soft:#a1adb5;
-  --bike-tint:#e5ead2; --bike-ink:#697347; --bike-soft:#afb58e;
+  --bike-tint:#f6dfca; --bike-ink:#8b4f22; --bike-soft:#c99565;
   --chess-tint:#efdae0; --chess-ink:#865766; --chess-soft:#dcbcc7; --chess-grid:#e4c9d2;
 }
 .feature-matched { --tint:var(--ai-tint); }
@@ -448,7 +448,7 @@ img { max-width: 100%; }
 :root {
  --paper:#ffffff; --ink:#292d30; --muted:#5e6266; --line:#cdd1d2;
  --ai-tint:#dce7ee; --ai-ink:#4c6374; --ai-soft:#a3b4c0;
- --bike-tint:#e1e7cd; --bike-ink:#657041; --bike-soft:#a7b18b;
+ --bike-tint:#f6dfca; --bike-ink:#8b4f22; --bike-soft:#c99565;
  --lilac:#e8e0ef; --chess-tint:#efd8e0; --chess-ink:#865766;
 }
 .hello h1 { margin-top:0; }
@@ -483,13 +483,13 @@ img { max-width: 100%; }
 .bike-figure-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.7rem 1rem; margin-bottom:.8rem; }
 .bike-figure-heading .figure-heading { margin:0; }
 .bike-season-controls { display:flex; flex-wrap:wrap; gap:.35rem; }
-.bike-season-controls button { font-size:.77rem; line-height:1.3; border:1px solid #cdd1c1; border-radius:3px; background:#fff; padding:.48rem .7rem; }
-.bike-season-controls button:hover { background:#f0f3e7; }
-.bike-season-controls button[aria-pressed="true"] { background:#657041; border-color:#657041; color:#fff; }
-.bike-chart-open { border-color:#cdd1c1; }
+.bike-season-controls button { font-size:.77rem; line-height:1.3; border:1px solid #dfb992; border-radius:3px; background:#fff; padding:.48rem .7rem; }
+.bike-season-controls button:hover { background:#fcf0e4; }
+.bike-season-controls button[aria-pressed="true"] { background:#8b4f22; border-color:#8b4f22; color:#fff; }
+.bike-chart-open { border-color:#dfb992; }
 .bike-chart-open picture, #bike-dialog picture { display:block; }
 .bike-chart-open picture img, #bike-dialog picture img { display:block; width:100%; height:auto; }
-.bike-chart-open>span { background:#f0f3e7; }
+.bike-chart-open>span { background:#fcf0e4; }
 #bike-dialog .bike-season-controls { margin:.8rem 0 .4rem; }
 @media(max-width:600px){
  .bike-season-controls { width:100%; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:.25rem; }
@@ -498,7 +498,7 @@ img { max-width: 100%; }
 }
 </style><style>
 /* Shared hierarchy: white introduction, gray canvas, distinct project headers. */
-:root { --bg:#e8edef; --ink:#25313a; --muted:#53616a; --line:#c7d0d4; --ai-tint:#d5e2eb; --bike-tint:#e0e5cb; --lilac:#e4dcef; --chess-tint:#edd5de; }
+:root { --bg:#e8edef; --ink:#25313a; --muted:#53616a; --line:#c7d0d4; --ai-tint:#d5e2eb; --bike-tint:#f6dfca; --lilac:#e4dcef; --chess-tint:#edd5de; }
 .shell { max-width:1220px; }
 .masthead,.hero { background:#fff; box-shadow:0 0 0 100vmax #fff; clip-path:inset(0 -100vmax); }
 .masthead { border-bottom-color:#c7d0d4; }
@@ -522,7 +522,7 @@ img { max-width: 100%; }
 .project .desc { max-width:46rem; }
 #project-ai { --project-ink:#496377; }
 #project-song { --project-ink:#79618b; }
-#project-bike { --project-ink:#657041; }
+#project-bike { --project-ink:#8b4f22; }
 #project-chess { --project-ink:#865766; }
 .links,.featured .links { align-self:center; padding:0; gap:.5rem; grid-column:auto; }
 .links a { text-decoration:none; border:1px solid #61737f80; border-radius:3px; background:#ffffffb8; padding:.3rem .65rem; white-space:nowrap; }
@@ -530,7 +530,7 @@ img { max-width: 100%; }
 .method h4,.result h4,.featured .finding h4,.study-heading { color:#253b48; font-weight:700; font-size:1.08rem; }
 .fact { background:transparent; padding:0; font-size:1.06rem!important; }
 .featured .finding-lead { background:transparent; border-left:3px solid var(--project-ink); padding:.25rem 0 .25rem .75rem; font-size:1.06rem; }
-.results .best { background:#eff2e5; }
+.results .best { background:#fcf0e4; }
 .project-output-band { background:#fafcfc; }
 .feature-matched .study-overview { grid-template-columns:minmax(0,1fr) 14rem; }
 .feature-matched .study-facts { max-width:38rem; }
@@ -1092,6 +1092,45 @@ body.refinement { --ink:#253542; --muted:#53636e; }
  .refinement.simple-study.links-right .project .project-category { grid-column:3; grid-row:1; margin:0; }
  .refinement.simple-study.links-right .project .project-head .links { grid-column:3; grid-row:2; justify-content:flex-end; align-self:end; margin:0; gap:1rem; }
 }
+</style><style>
+#project-rag { --tint:#dceae4; --project-ink:#416d5a; }
+#project-rag .rag-results { width:100%; margin-top:0; font-size:1rem; }
+#project-rag .rag-results thead th { font-size:.875rem; }
+#project-rag .rag-results th,#project-rag .rag-results td { padding:.7rem .3rem; }
+#project-rag .rag-results tbody th { font-weight:400; }
+#project-rag .rag-results tbody tr:first-child>* { background:#edf4f0; }
+#project-rag .rag-sample { font-size:.94rem; line-height:1.6; margin:.85rem 0 0; color:#53636e; }
+#project-rag .rag-finding { font-size:1rem; line-height:1.6; margin:.7rem 0 0; }
+.rag-experiments-link { border:0; background:none; padding:0; margin:1rem 0 0; font-size:.94rem; line-height:1.6; text-align:left; text-decoration:underline; text-underline-offset:.22em; color:#416d5a; min-height:36px; }
+.rag-pipeline { margin:0; }
+#project-rag .rag-pipeline .figure-heading { font-size:1rem; font-weight:600; margin-bottom:1rem; }
+.rag-flow { max-width:29rem; margin:0 auto; }
+.rag-sources { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:.5rem; }
+.rag-sources span { font-size:.875rem; line-height:1.4; border:1px solid #b9cfc2; border-radius:3px; padding:.5rem .65rem; background:#f8fbf9; color:#496858; }
+.rag-connector { width:1px; height:16px; background:#9ab5a7; margin:0 auto; }
+.rag-node { padding:.6rem .8rem; border:1px solid #abc5b6; border-radius:3px; text-align:center; background:#f8fbf9; }
+.rag-node strong,.rag-audiences strong { display:block; font-size:1rem; font-weight:500; line-height:1.4; color:#355b49; }
+.rag-node span,.rag-audiences span { display:block; font-size:.875rem; line-height:1.5; margin-top:.12rem; color:#53655b; }
+.rag-generation { background:#e8f1ec; }
+.rag-branch { position:relative; height:26px; width:55%; margin:0 auto; display:flex; justify-content:space-between; border-top:0; }
+.rag-branch:before { content:""; width:1px; height:13px; background:#9ab5a7; position:absolute; top:0; left:50%; }
+.rag-branch:after { content:""; height:1px; background:#9ab5a7; position:absolute; top:13px; left:0; right:0; }
+.rag-branch i { display:block; width:1px; height:13px; background:#9ab5a7; align-self:flex-end; }
+.rag-audiences { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.rag-audiences>div { border:1px solid #b9cfc2; border-radius:3px; padding:.6rem .4rem; text-align:center; background:#fff; }
+#rag-dialog { max-width:950px; }
+#rag-dialog .rag-dialog-note { margin-top:1rem; color:#53636e; font-size:.94rem; }
+#rag-dialog .selected-configuration>* { background:#e8f1ec; }
+#rag-dialog .queue-table { font-size:1rem; }
+#rag-dialog .queue-table th { font-size:.94rem; }
+@media(max-width:600px) {
+ #project-rag .rag-results { font-size:.94rem; }
+ #project-rag .rag-results thead th { font-size:.875rem; }
+ .rag-sources { gap:.4rem; }
+ .rag-sources span { padding:.4rem .5rem; }
+ .rag-audiences { gap:.65rem; }
+ #rag-dialog .queue-table { min-width:650px; }
+}
 </style></head><body class="index layout-menu header-continuous focus-layout refinement visuals notes simple-study methods-columns links-right"><a class="skip" href="#main">Skip to content</a><div class="shell">
 <header class="masthead"><a class="brand" href="#main">Belinda Xu <svg class="berry" viewBox="0 0 12 15" shape-rendering="crispEdges" aria-hidden="true"><path fill="#667550" d="M6 0h1v3H6zM3 2h3v1h3v1h1v1H2V3h1z"/><path fill="#b6634e" d="M2 5h8v1h1v5h-1v1H9v1H8v1H4v-1H3v-1H2v-1H1V6h1z"/><path fill="#f3dbab" d="M3 6h1v1H3zM8 7h1v1H8zM5 9h1v1H5zM7 11h1v1H7zM4 12h1v1H4z"/></svg></a>
 <nav class="header-links" aria-label="Profile links"><a href="https://www.linkedin.com/in/belindax/">LinkedIn <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="https://github.com/belindamx">GitHub <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav></header>
@@ -1120,6 +1159,52 @@ body.refinement { --ink:#253542; --muted:#53636e; }
 <a class="ai-visual-art" href="assets/ai-study-flow-tall.svg" target="_blank" rel="noopener" aria-label="Open a larger experiment design visual"><picture><source media="(min-width:1001px)" srcset="assets/ai-study-flow-tall.svg"><source media="(max-width:600px)" srcset="assets/ai-study-flow-mobile.svg"><img src="assets/ai-study-flow.svg" alt="A randomized study with control and treatment paths. Both groups read the same post and comments; the treatment group also sees an AI summary."></picture></a>
 <figcaption>Opinions and perceived support measured before and after reading</figcaption></figure></div>
 <section class="method focus-method"><h4>Methods</h4><div class="method-body method-notes"><div class="method-note" id="project-ai-method-1"><h5>Random assignment</h5><p>Readers saw the same post and comments, with or without an AI summary</p></div><div class="method-note" id="project-ai-method-2"><h5>Before-and-after measures</h5><p>Measured opinions and perceived public support for AI data centers, police body cameras, and capital punishment</p></div><div class="method-note" id="project-ai-method-3"><h5>Regression analysis</h5><p>Models included baseline values and topic fixed effects. Standard errors were clustered by participant because each person answered three topics</p></div></div></section></article><div class="project-list">
+<article id="project-rag" class="project rag">
+<div class="project-head">
+<span class="project-category">Generative AI</span>
+<div class="project-image"><svg aria-hidden="true" focusable="false" viewBox="0 0 152 116" fill="none">
+<rect width="152" height="116" rx="6" fill="var(--tint)"/>
+<path d="M17 20h43v56H17zM25 12h43v56H25z" fill="#fafdfb" stroke="#497462" stroke-width="2.2"/>
+<path d="M35 28h23M35 38h19M35 48h14" stroke="#9ab5a7" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="78" cy="57" r="20" fill="#e8f1ec" stroke="#497462" stroke-width="3"/>
+<path d="m92 72 13 15" stroke="#497462" stroke-width="4" stroke-linecap="round"/>
+<path d="M108 18h29v25h-8l-8 8v-8h-13zM108 72h29v25h-8l-8 8v-8h-13z" fill="#fafdfb" stroke="#497462" stroke-width="2" stroke-linejoin="round"/>
+<path d="M115 28h15M115 34h10M115 82h15M115 88h10" stroke="#9ab5a7" stroke-width="2" stroke-linecap="round"/>
+</svg></div>
+<div class="project-heading"><h3>RAG pipeline implementation &amp; evaluation</h3><p class="desc">Comparing models, chunk sizes, retrieval depth, and audience prompts</p></div>
+<div class="links"><a href="assets/rag_evaluation_report.pdf">Paper</a><a href="https://github.com/belindamx/rag-pipeline-evaluation">Code</a></div>
+</div>
+<div class="project-focus">
+<div class="focus-copy">
+<h4>Results</h4>
+<table class="effect-table rag-results" aria-label="Selected RAG configuration on 75 questions per audience">
+<thead><tr><th scope="col">Audience</th><th scope="col">Cosine similarity</th><th scope="col">ROUGE-L F1</th></tr></thead>
+<tbody><tr><th scope="row">Engineering</th><td>0.819</td><td>0.136</td></tr><tr><th scope="row">Marketing</th><td>0.813</td><td>0.200</td></tr></tbody>
+</table>
+<p class="rag-sample">75 questions per audience. Similarity scores, not accuracy.</p>
+<p class="rag-finding">Larger chunks slightly improved semantic similarity. More retrieved context did not help.</p>
+<button class="rag-experiments-link" type="button" data-open-output="rag-dialog">Compare the configurations</button>
+</div>
+<figure class="focus-visual rag-pipeline">
+<h4 class="figure-heading">RAG pipeline</h4>
+<div class="rag-flow" role="img" aria-label="Research papers, Wikipedia and web sources are embedded with MPNet and indexed in Qdrant. For a question, four 1,000-character chunks are retrieved and passed to Cohere with an audience-specific prompt, producing a technical engineering answer or a high-level marketing answer.">
+<div class="rag-sources"><span>Research papers</span><span>Wikipedia</span><span>Web</span></div>
+<div class="rag-connector" aria-hidden="true"></div>
+<div class="rag-node"><strong>Retrieve relevant context</strong><span>MPNet embeddings · Qdrant</span></div>
+<div class="rag-connector" aria-hidden="true"></div>
+<div class="rag-node rag-generation"><strong>Cohere + audience prompt</strong><span>4 chunks × 1,000 characters</span></div>
+<div class="rag-branch" aria-hidden="true"><i></i><i></i></div>
+<div class="rag-audiences"><div><strong>Engineering</strong><span>Technical detail</span></div><div><strong>Marketing</strong><span>High-level explanation</span></div></div>
+</div>
+</figure>
+</div>
+<section class="method focus-method"><h4>Methods</h4><div class="method-body method-notes">
+<div class="method-note"><h5>Shared retrieval</h5><p>Built a LangChain pipeline over research and web sources with MPNet embeddings and Qdrant</p></div>
+<div class="method-note"><h5>Configuration experiments</h5><p>Compared Cohere and Mistral at baseline, then tested chunk size, retrieval depth, and prompts with Cohere</p></div>
+<div class="method-note"><h5>Answer evaluation</h5><p>Scored audience-specific answers against gold references and reviewed missing facts and unsupported responses</p></div>
+</div></section>
+</article>
+
 <article id="project-song" class="project song" style="--tint:var(--lilac)">
 <div class="project-head"><span class="project-category">Graph algorithms</span><div class="project-image"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 116" fill="none">
 
@@ -1159,7 +1244,7 @@ body.refinement { --ink:#253542; --muted:#53636e; }
 </tbody></table>
 <p class="source">MAE is mean absolute error; lower is better.</p></div><figure id="bike-demand-chart" class="output-figure focus-visual bike-output">
   <div class="bike-figure-heading"><h4 class="figure-heading">Observed hourly demand</h4><div class="bike-season-controls" role="group" aria-label="Bike demand season"><button type="button" data-bike-season="all" aria-pressed="true">All seasons</button><button type="button" data-bike-season="spring" aria-pressed="false">Spring</button><button type="button" data-bike-season="summer" aria-pressed="false">Summer</button><button type="button" data-bike-season="autumn" aria-pressed="false">Autumn</button><button type="button" data-bike-season="winter" aria-pressed="false">Winter</button></div></div>
-  <div class="bike-chart"><picture><source data-bike-chart-mobile media="(max-width:600px)" srcset="assets/bike-hourly-all-mobile.svg"><img data-bike-chart src="assets/bike-hourly-all.svg" width="840" height="325" alt="Average hourly bike rentals across all seasons. The peak is at 6 PM, averaging 1,554 rentals."></picture></div>
+  <div class="bike-chart"><picture><source data-bike-chart-mobile media="(max-width:600px)" srcset="assets/bike-hourly-all-mobile.svg?v=2"><img data-bike-chart src="assets/bike-hourly-all.svg?v=2" width="840" height="325" alt="Average hourly bike rentals across all seasons. The peak is at 6 PM, averaging 1,554 rentals."></picture></div>
 </figure></div>
 <section class="method focus-method"><h4>Methods</h4><div class="method-body method-notes"><div class="method-note" id="project-bike-method-1"><h5>Model comparison</h5><p>Compared linear regression, a feedforward neural network, and XGBoost</p></div><div class="method-note" id="project-bike-method-2"><h5>Time-aware features</h5><p>Encoded cyclical time patterns and added lagged demand features</p></div><div class="method-note" id="project-bike-method-3"><h5>Data preprocessing</h5><p>Split chronologically into 60% training, 20% validation, and 20% test. Fitted scaling on training data only</p></div></div></section></article>
 <article id="project-chess" class="project chess" style="--tint:var(--chess-tint)">
@@ -1279,6 +1364,21 @@ for (const tab of tabs) {
 
 
 
+<dialog id="rag-dialog" class="output-dialog" aria-labelledby="rag-dialog-title">
+<div class="dialog-heading"><h2 id="rag-dialog-title">RAG configuration comparison</h2><button type="button" data-close-output>Close ×</button></div>
+<p class="dialog-intro">The same 15 questions were used for each configuration. Higher scores indicate greater similarity to the audience-specific gold answers.</p>
+<div class="queue-scroll"><table class="queue-table"><thead><tr><th scope="col">Configuration</th><th scope="col">Eng. cosine</th><th scope="col">Eng. ROUGE-L</th><th scope="col">Mkt. cosine</th><th scope="col">Mkt. ROUGE-L</th></tr></thead>
+<tbody>
+<tr><th scope="row">Cohere · 128 characters · k=4</th><td>0.7926</td><td>0.1388</td><td>0.8041</td><td>0.2267</td></tr>
+<tr><th scope="row">Mistral · 128 characters · k=4</th><td>0.7816</td><td>0.1656</td><td>0.8066</td><td>0.2241</td></tr>
+<tr class="selected-configuration"><th scope="row">Cohere · 1,000 characters · k=4</th><td>0.8001</td><td>0.1384</td><td>0.8102</td><td>0.2001</td></tr>
+<tr><th scope="row">Cohere · 1,000 characters · k=8</th><td>0.7878</td><td>0.1351</td><td>0.7750</td><td>0.1821</td></tr>
+<tr><th scope="row">Cohere · 1,000 · k=4 · revised prompts</th><td>0.7952</td><td>0.1818</td><td>0.7919</td><td>0.1800</td></tr>
+</tbody></table></div>
+<p class="rag-dialog-note">The highlighted configuration had the highest cosine averages and was evaluated on all 75 questions. Those 75 include the 15 selection questions. There was no independent held-out test set.</p>
+<p class="dialog-source">Source: <a href="assets/rag_evaluation_report.pdf#page=3">project paper, page 3</a>.</p>
+</dialog>
+
 <dialog id="music-dialog" class="output-dialog" aria-labelledby="music-dialog-title"><div class="dialog-heading"><h2 id="music-dialog-title">Example song path</h2><button type="button" data-close-output>Close ×</button></div><picture><source media="(max-width:600px)" srcset="assets/music-path-mobile.svg"><img src="assets/music-path.svg" alt="A nine-song playlist crosses two music communities: Bohemian Rhapsody by Queen starts the path, Burn by Hex Cougar and Pauline Herr is the bridge, and How Long by Tove Lo is the destination." width="820" height="370"></picture><p class="dialog-intro">The paper’s example connects community 10116 to community 38520. <strong>Burn</strong> is the bridge track.</p><div class="queue-scroll"><table class="queue-table"><thead><tr><th>Step</th><th>Song</th><th>Artist</th><th>Community</th></tr></thead><tbody><tr class=""><td>1</td><th scope="row">Bohemian Rhapsody</th><td>Queen</td><td>10116</td></tr><tr class=""><td>2</td><th scope="row">O Amigo</th><td>Sergio Lopes</td><td>10116</td></tr><tr class=""><td>3</td><th scope="row">Miranda</th><td>Frank Turner</td><td>10116</td></tr><tr class=""><td>4</td><th scope="row">SAYONARA</th><td>Aries</td><td>10116</td></tr><tr class="bridge-row"><td>5</td><th scope="row">Burn</th><td>Hex Cougar; Pauline Herr</td><td>38520</td></tr><tr class=""><td>6</td><th scope="row">big city blues</th><td>Lil Peep; Cold Hart</td><td>38520</td></tr><tr class=""><td>7</td><th scope="row">Peace To The Mountain</th><td>Coheed and Cambria</td><td>38520</td></tr><tr class=""><td>8</td><th scope="row">Fa La La</th><td>Justin Bieber; Boyz II Men</td><td>38520</td></tr><tr class=""><td>9</td><th scope="row">How Long</th><td>Tove Lo</td><td>38520</td></tr></tbody></table></div><p class="dialog-source">Source: <a href="assets/recommender_paper.pdf#page=4">project paper, page 4</a>.</p></dialog>
 
 <script>
@@ -1301,9 +1401,9 @@ for(const button of document.querySelectorAll('[data-bike-season]'))button.addEv
  const hour=(data.peakHour%12||12)+' '+(data.peakHour<12?'AM':'PM');
  const count=data.peakMean.toLocaleString('en-US');
  for(const control of document.querySelectorAll('[data-bike-season]'))control.setAttribute('aria-pressed',String(control.dataset.bikeSeason===season));
- for(const mobile of document.querySelectorAll('[data-bike-chart-mobile]'))mobile.srcset='assets/bike-hourly-'+season+'-mobile.svg';
+ for(const mobile of document.querySelectorAll('[data-bike-chart-mobile]'))mobile.srcset='assets/bike-hourly-'+season+'-mobile.svg?v=2';
  for(const chart of document.querySelectorAll('[data-bike-chart]')){
-  chart.src='assets/bike-hourly-'+season+'.svg';
+  chart.src='assets/bike-hourly-'+season+'.svg?v=2';
   chart.alt='Average hourly bike rentals, '+data.label.toLowerCase()+'. The peak is at '+hour+', averaging '+count+' rentals.';
  }
 });
