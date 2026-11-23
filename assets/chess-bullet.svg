@@ -210,7 +210,7 @@ L 518.510883 51.95244
 L 522.498234 45.866976 
 L 526.356961 54.755856 
 L 530.344312 40.123392 
-" clip-path="url(#pf8132731dc)" style="fill: none; stroke: #496575; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#pf8132731dc)" style="fill: none; stroke: #865766; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="PathCollection_1">
     <defs>
@@ -224,10 +224,10 @@ C -2.366978 -1.374679 -2.645751 -0.701661 -2.645751 0
 C -2.645751 0.701661 -2.366978 1.374679 -1.870829 1.870829 
 C -1.374679 2.366978 -0.701661 2.645751 0 2.645751 
 z
-" style="stroke: #496575"/>
+" style="stroke: #865766"/>
     </defs>
     <g clip-path="url(#pf8132731dc)">
-     <use xlink:href="#mb63450c741" x="530.344312" y="40.123392" style="fill: #496575; stroke: #496575"/>
+     <use xlink:href="#mb63450c741" x="530.344312" y="40.123392" style="fill: #865766; stroke: #865766"/>
     </g>
    </g>
   </g>
