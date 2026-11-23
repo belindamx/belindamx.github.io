@@ -1098,7 +1098,7 @@ body.refinement { --ink:#253542; --muted:#53636e; }
 #project-rag .rag-results thead th { font-size:.875rem; }
 #project-rag .rag-results th,#project-rag .rag-results td { padding:.7rem .3rem; }
 #project-rag .rag-results tbody th { font-weight:400; }
-#project-rag .rag-results tbody tr:first-child>* { background:#edf4f0; }
+#project-rag .rag-results tr > :nth-child(2) { background:#edf4f0; }
 #project-rag .rag-sample { font-size:.94rem; line-height:1.6; margin:.85rem 0 0; color:#53636e; }
 #project-rag .rag-finding { font-size:1rem; line-height:1.6; margin:.7rem 0 0; }
 .rag-experiments-link { border:0; background:none; padding:0; margin:1rem 0 0; font-size:.94rem; line-height:1.6; text-align:left; text-decoration:underline; text-underline-offset:.22em; color:#416d5a; min-height:36px; }
@@ -1171,7 +1171,7 @@ body.refinement { --ink:#253542; --muted:#53636e; }
 <path d="M108 18h29v25h-8l-8 8v-8h-13zM108 72h29v25h-8l-8 8v-8h-13z" fill="#fafdfb" stroke="#497462" stroke-width="2" stroke-linejoin="round"/>
 <path d="M115 28h15M115 34h10M115 82h15M115 88h10" stroke="#9ab5a7" stroke-width="2" stroke-linecap="round"/>
 </svg></div>
-<div class="project-heading"><h3>RAG pipeline implementation &amp; evaluation</h3><p class="desc">Comparing models, chunk sizes, retrieval depth, and audience prompts</p></div>
+<div class="project-heading"><h3>RAG pipeline implementation &amp; evaluation</h3><p class="desc">Comparing different configurations of models, chunk sizes, retrieval depth, and audience prompts</p></div>
 <div class="links"><a href="assets/rag_evaluation_report.pdf">Paper</a><a href="https://github.com/belindamx/rag-pipeline-evaluation">Code</a></div>
 </div>
 <div class="project-focus">
@@ -1181,8 +1181,8 @@ body.refinement { --ink:#253542; --muted:#53636e; }
 <thead><tr><th scope="col">Audience</th><th scope="col">Cosine similarity</th><th scope="col">ROUGE-L F1</th></tr></thead>
 <tbody><tr><th scope="row">Engineering</th><td>0.819</td><td>0.136</td></tr><tr><th scope="row">Marketing</th><td>0.813</td><td>0.200</td></tr></tbody>
 </table>
-<p class="rag-sample">75 questions per audience. Similarity scores, not accuracy.</p>
-<p class="rag-finding">Larger chunks slightly improved semantic similarity. More retrieved context did not help.</p>
+<p class="rag-sample">Results are based on 75 questions for each audience, for a total of 150 validation question-answer pairs.</p>
+<p class="rag-finding">Based on experiments, larger chunks (1000 vs 128 characters) slightly improved semantic similarity, but increasing retrieved context (k=8 vs k=4) did not improve metrics.</p>
 <button class="rag-experiments-link" type="button" data-open-output="rag-dialog">Compare the configurations</button>
 </div>
 <figure class="focus-visual rag-pipeline">
