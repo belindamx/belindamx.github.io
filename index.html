@@ -1131,6 +1131,41 @@ body.refinement { --ink:#253542; --muted:#53636e; }
  .rag-audiences { gap:.65rem; }
  #rag-dialog .queue-table { min-width:650px; }
 }
+</style><style id="project-color-treatment">
+body.refinement .project .project-head {
+  --tint:var(--card-header);
+  background:var(--card-header);
+  border-top-color:var(--card-rule);
+  border-bottom-color:var(--card-divider);
+}
+body.refinement .project .project-head .project-heading h3 { color:var(--card-title); }
+body.refinement .project .project-head .desc { color:var(--card-desc); }
+body.refinement .project .project-head .project-category {
+  color:var(--card-label);
+  background:var(--card-label-bg);
+  border-color:var(--card-label-border);
+}
+body.refinement .project .project-head .links a {
+  color:var(--card-link);
+  text-decoration-color:var(--card-link-line);
+}
+body.refinement .project .project-head .links a:hover { color:var(--card-title); }
+body.refinement .project .focus-copy>h4,
+body.refinement .project .figure-heading,
+body.refinement .project .focus-method>h4,
+body.refinement .project .project-metrics dd,
+body.refinement .project .rag-experiments-link { color:var(--card-body-heading); }
+body {
+--card-header:#ffffff; --card-divider:#d7dfe4;
+--card-title:#253542; --card-desc:#435764;
+--card-link:#314957; --card-link-line:#a4b3bd; --card-body-heading:#3b4e5b;
+}
+body.refinement .project .project-head {
+--card-rule:var(--project-ink);
+--card-label:var(--project-ink);
+--card-label-bg:color-mix(in srgb,var(--project-ink) 8%,white);
+--card-label-border:color-mix(in srgb,var(--project-ink) 28%,white);
+}
 </style></head><body class="index layout-menu header-continuous focus-layout refinement visuals notes simple-study methods-columns links-right"><a class="skip" href="#main">Skip to content</a><div class="shell">
 <header class="masthead"><a class="brand" href="#main">Belinda Xu <svg class="berry" viewBox="0 0 12 15" shape-rendering="crispEdges" aria-hidden="true"><path fill="#667550" d="M6 0h1v3H6zM3 2h3v1h3v1h1v1H2V3h1z"/><path fill="#b6634e" d="M2 5h8v1h1v5h-1v1H9v1H8v1H4v-1H3v-1H2v-1H1V6h1z"/><path fill="#f3dbab" d="M3 6h1v1H3zM8 7h1v1H8zM5 9h1v1H5zM7 11h1v1H7zM4 12h1v1H4z"/></svg></a>
 <nav class="header-links" aria-label="Profile links"><a href="https://www.linkedin.com/in/belindax/">LinkedIn <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="https://github.com/belindamx">GitHub <svg class="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4.5 4H12v7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav></header>
